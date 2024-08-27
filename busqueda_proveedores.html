@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Busqueda de Proveedores</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            padding-top: 56px;
+        }
+        .search-container {
+            margin-top: 30px;
+        }
+        .table-container {
+            margin-top: 20px;
+        }
+        .table img {
+            height: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <a class="navbar-brand" href="#">
+            <img src="logo.png" alt="Logo" style="height: 40px;">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Features</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Pricing</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Search Form -->
+    <div class="container search-container">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <h2 class="text-center">Buscar Proveedores</h2>
+                <form>
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Buscar por nombre, categoría, etc." aria-label="Search">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary" type="button">Buscar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Results Table -->
+    <div class="container table-container">
+        <div class="row">
+            <div class="col-md-10 offset-md-1">
+                <table class="table table-bordered table-hover">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">Logo</th>
+                            <th scope="col">Nombre del Proveedor</th>
+                            <th scope="col">Categoría</th>
+                            <th scope="col">Ubicación</th>
+                            <th scope="col">Calificación</th>
+                            <th scope="col">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><img src="logo1.png" alt="Logo 1"></td>
+                            <td>Proveedor 1</td>
+                            <td>Alimentos</td>
+                            <td>Ciudad A</td>
+                            <td>★★★★☆</td>
+                            <td><button class="btn btn-sm btn-info">Ver Perfil</button></td>
+                        </tr>
+                        <tr>
+                            <td><img src="logo2.png" alt="Logo 2"></td>
+                            <td>Proveedor 2</td>
+                            <td>Electrónica</td>
+                            <td>Ciudad B</td>
+                            <td>★★★☆☆</td>
+                            <td><button class="btn btn-sm btn-info">Ver Perfil</button></td>
+                        </tr>
+                        <!-- Añade más filas de proveedores -->
+                        <tr>
+                            <td><img src="logo3.png" alt="Logo 3"></td>
+                            <td>Proveedor 3</td>
+                            <td>Construcción</td>
+                            <td>Ciudad C</td>
+                            <td>★★★★★</td>
+                            <td><button class="btn btn-sm btn-info">Ver Perfil</button></td>
+                        </tr>
+                        <tr>
+                            <td><img src="logo4.png" alt="Logo 4"></td>
+                            <td>Proveedor 4</td>
+                            <td>Textiles</td>
+                            <td>Ciudad D</td>
+                            <td>★★★☆☆</td>
+                            <td><button class="btn btn-sm btn-info">Ver Perfil</button></td>
+                        </tr>
+                        <!-- Repite el patrón para más proveedores -->
+                        <tr>
+                            <td><img src="logo5.png" alt="Logo 5"></td>
+                            <td>Proveedor 5</td>
+                            <td>Servicios</td>
+                            <td>Ciudad E</td>
+                            <td>★★★★☆</td>
+                            <td><button class="btn btn-sm btn-info">Ver Perfil</button></td>
+                        </tr>
+                        <tr>
+                            <td><img src="logo6.png" alt="Logo 6"></td>
+                            <td>Proveedor 6</td>
+                            <td>Manufactura</td>
+                            <td>Ciudad F</td>
+                            <td>★★★★★</td>
+                            <td><button class="btn btn-sm btn-info">Ver Perfil</button></td>
+                        </tr>
+                        <tr>
+                            <td><img src="logo7.png" alt="Logo 7"></td>
+                            <td>Proveedor 7</td>
+                            <td>Logística</td>
+                            <td>Ciudad G</td>
+                            <td>★★★☆☆</td>
+                            <td><button class="btn btn-sm btn-info">Ver Perfil</button></td>
+                        </tr>
+                        <tr>
+                            <td><img src="logo8.png" alt="Logo 8"></td>
+                            <td>Proveedor 8</td>
+                            <td>Transporte</td>
+                            <td>Ciudad H</td>
+                            <td>★★★★☆</td>
+                            <td><button class="btn btn-sm btn-info">Ver Perfil</button></td>
+                        </tr>
+                        <tr>
+                            <td><img src="logo9.png" alt="Logo 9"></td>
+                            <td>Proveedor 9</td>
+                            <td>Agricultura</td>
+                            <td>Ciudad I</td>
+                            <td>★★★★★</td>
+                            <td><button class="btn btn-sm btn-info">Ver Perfil</button></td>
+                        </tr>
+                        <tr>
+                            <td><img src="logo10.png" alt="Logo 10"></td>
+                            <td>Proveedor 10</td>
+                            <td>Química</td>
+                            <td>Ciudad J</td>
+                            <td>★★★☆☆</td>
+                            <td><button class="btn btn-sm btn-info">Ver Perfil</button></td>
+                        </tr>
+                        <!-- Y más proveedores según sea necesario -->
+                        <tr>
+                            <td><img src="logo11.png" alt="Logo 11"></td>
+                            <td>Proveedor 11</td>
+                            <td>Salud</td>
+                            <td>Ciudad K</td>
+                            <td>★★★★☆</td>
+                            <td><button class="btn btn-sm btn-info">Ver Perfil</button></td>
+                        </tr>
+                        <tr>
+                            <td><img src="logo12.png" alt="Logo 12"></td>
+                            <td>Proveedor 12</td>
+                            <td>Educación</td>
+                            <td>Ciudad L</td>
+                            <td>★★★★★</td>
+                            <td><button class="btn btn-sm btn-info">Ver Perfil</button></td>
+                        </tr>
+                        <tr>
+                            <td><img src="logo13.png" alt="Logo 13"></td>
+                            <td>Proveedor 13</td>
+                            <td>Inmobiliaria</td>
+                            <td>Ciudad M</td>
+                            <td>★★★☆☆</td>
+                            <td><button class="btn btn-sm btn-info">Ver Perfil</button></td>
+                        </tr>
+                        <tr>
+                            <td><img src="logo14.png" alt="Logo 14"></td>
+                            <td>Proveedor 14</td>
+                            <td>Automotriz</td>
+                            <td>Ciudad N</td>
+                            <td>★★★★☆</td>
+                            <td><button class="btn btn-sm btn-info">Ver Perfil</button></td>
+                        </tr>
+                        <tr>
+                            <td><img src="logo15.png" alt="Logo 15"></td>
+                            <td>Proveedor 15</td>
+                            <td>Turismo</td>
+                            <td>Ciudad O</td>
+                            <td>★★★★★</td>
+                            <td><button class="btn btn-sm btn-info">Ver Perfil</button></td>
+                        </tr>
+                        <tr>
+                            <td><img src="logo16.png" alt="Logo 16"></td>
+                            <td>Proveedor 16</td>
+                            <td>Telecomunicaciones</td> 
+                            <td>Ciudad P</td> 
+                            <td>★★★☆☆</td> 
+                            <td><button class="btn btn-sm btn-info">Ver Perfil</button></td>
+                        </tr>
+                        <tr> 
+                            <td><img src="logo17.png" alt="Logo 17"></td>
+                            <td>Proveedor 17</td> 
+                            <td>Finanzas</td>
+                            <td>Ciudad Q</td> 
+                            <td>★★★★☆</td> 
+                            <td><button class="btn btn-sm btn-info">Ver Perfil</button></td>
+                        </tr> 
+                            <td><img src="logo18.png" alt="Logo 18"></td> 
+                            <td>Proveedor 18</td> 
+                            <td>Energía</td> 
+                            <td>Ciudad R</td> 
+                            <td>★★★★★</td> <td><button class="btn btn-sm btn-info">Ver Perfil</button></td>
+                        <tr>
+                        </tr>
+                            <td><img src="logo19.png" alt="Logo 19"></td> 
+                            <td>Proveedor 19</td> 
+                            <td>Consultoría</td> 
+                            <td>Ciudad S</td> 
+                            <td>★★★☆☆</td> 
+                            <td><button class="btn btn-sm btn-info">Ver Perfil</button></td>
+                        <tr>  
+                            <td><img src="logo20.png" alt="Logo 20"></td>
+                            <td>Proveedor 20</td> 
+                            <td>Consultoría</td> 
+                            <td>Ciudad T</td> 
+                            <td>★★★☆☆</td> 
+                            <td><button class="btn btn-sm btn-info">Ver Perfil</button></td>
+                        </tr>
+                        
