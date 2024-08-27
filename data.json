@@ -1,0 +1,200 @@
+{
+	"proveedores": [
+		{
+			"id": 1,
+			"nombre": "Pepe Argento",
+			"razonSocial": "Pepe's",
+			"categoriaPrincipal": "Comida",
+			"balance": 100000,
+			"servicios": [
+				{
+					"id": 1,
+					"categoria": "Comida",
+					"nombre": "Facturas bañadas en Miel",
+					"descripcion": "Una docena de riquísimas facturas bañadas en miel.",
+					"precio": 5000
+				}, {
+					"id": 2,
+					"categoria": "Comida",
+					"nombre": "Coca-Cola 20L",
+					"descripcion": "20 litros de la famosa bebida Coca-Cola Sabor Original.",
+					"precio": 25000
+				}, {
+					"id": 3,
+					"categoria": "Comida",
+					"nombre": "Bocaditos de Jamón y Queso",
+					"descripcion": "50 unidades de bocaditos de jamón y queso.",
+					"precio": 15000
+				}, {
+					"id": 4,
+					"categoria": "Comida",
+					"nombre": "Torta de Quince Años",
+					"descripcion": "Torta personalizada con diseño especial para fiestas de quince.",
+					"precio": 50000
+				}, {
+					"id": 5,
+					"categoria": "Comida",
+					"nombre": "Mesa de Dulces",
+					"descripcion": "Variedad de dulces y chocolates presentados en una mesa decorada.",
+					"precio": 30000
+				}
+			]
+		}, {
+			"id": 2,
+			"nombre": "Juan Perez",
+			"razonSocial": "DJ Magic",
+			"categoriaPrincipal": "DJ",
+			"balance": 80000,
+			"servicios": [
+				{
+					"id": 1,
+					"categoria": "DJ",
+					"nombre": "DJ para 4 horas",
+					"descripcion": "Servicio de DJ con música variada por 4 horas.",
+					"precio": 40000
+				}, {
+					"id": 2,
+					"categoria": "DJ",
+					"nombre": "Alquiler de luces LED",
+					"descripcion": "Luces LED para ambientar la pista de baile.",
+					"precio": 10000
+				}, {
+					"id": 3,
+					"categoria": "DJ",
+					"nombre": "Karaoke",
+					"descripcion": "Servicio de karaoke con más de 1000 canciones disponibles.",
+					"precio": 15000
+				}, {
+					"id": 4,
+					"categoria": "DJ",
+					"nombre": "Pista de baile iluminada",
+					"descripcion": "Alquiler de pista de baile con luces interactivas.",
+					"precio": 20000
+				}, {
+					"id": 5,
+					"categoria": "DJ",
+					"nombre": "Proyección de Videos",
+					"descripcion": "Proyección de videos personalizados durante el evento.",
+					"precio": 12000
+				}
+			]
+		}, {
+			"id": 3,
+			"nombre": "María López",
+			"razonSocial": "Fotografía Momentos",
+			"categoriaPrincipal": "Fotografia",
+			"balance": 120000,
+			"servicios": [
+				{
+					"id": 1,
+					"categoria": "Fotografia",
+					"nombre": "Sesión Pre-Quinceaños",
+					"descripcion": "Sesión fotográfica previa al evento con temática elegida.",
+					"precio": 30000
+				}, {
+					"id": 2,
+					"categoria": "Fotografia",
+					"nombre": "Cobertura Completa del Evento",
+					"descripcion": "Cobertura fotográfica completa durante toda la fiesta.",
+					"precio": 70000
+				}, {
+					"id": 3,
+					"categoria": "Fotografia",
+					"nombre": "Álbum Digital",
+					"descripcion": "Álbum fotográfico digital con todas las fotos del evento.",
+					"precio": 15000
+				}, {
+					"id": 4,
+					"categoria": "Fotografia",
+					"nombre": "Fotocabina",
+					"descripcion": "Alquiler de fotocabina para fotos instantáneas durante la fiesta.",
+					"precio": 25000
+				}, {
+					"id": 5,
+					"categoria": "Fotografia",
+					"nombre": "Impresión de Fotos en el Momento",
+					"descripcion": "Servicio de impresión de fotos instantáneas durante el evento.",
+					"precio": 20000
+				}
+			]
+		}, {
+			"id": 4,
+			"nombre": "Laura Martínez",
+			"razonSocial": "Eventos Martínez",
+			"categoriaPrincipal": "Salon",
+			"balance": 150000,
+			"servicios": [
+				{
+					"id": 1,
+					"categoria": "Salon",
+					"nombre": "Alquiler de Salón para 200 personas",
+					"descripcion": "Salón con capacidad para 200 personas, equipado con mesas y sillas.",
+					"precio": 80000
+				}, {
+					"id": 2,
+					"categoria": "Salon",
+					"nombre": "Decoración Temática",
+					"descripcion": "Decoración completa del salón con temática elegida.",
+					"precio": 35000
+				}, {
+					"id": 3,
+					"categoria": "Salon",
+					"nombre": "Servicio de Mozo",
+					"descripcion": "Servicio de mozos para atender a los invitados durante el evento.",
+					"precio": 20000
+				}, {
+					"id": 4,
+					"categoria": "Salon",
+					"nombre": "Pista de Baile",
+					"descripcion": "Alquiler de pista de baile dentro del salón.",
+					"precio": 15000
+				}, {
+					"id": 5,
+					"categoria": "Salon",
+					"nombre": "Sonido Profesional",
+					"descripcion": "Sistema de sonido profesional para todo el salón.",
+					"precio": 25000
+				}
+			]
+		}, {
+			"id": 5,
+			"nombre": "Carlos Ruiz",
+			"razonSocial": "Diseño Fiesta",
+			"categoriaPrincipal": "Diseño",
+			"balance": 90000,
+			"servicios": [
+				{
+					"id": 1,
+					"categoria": "Diseño",
+					"nombre": "Invitaciones Personalizadas",
+					"descripcion": "Diseño y creación de invitaciones personalizadas para el evento.",
+					"precio": 10000
+				}, {
+					"id": 2,
+					"categoria": "Diseño",
+					"nombre": "Diseño de Identidad Visual",
+					"descripcion": "Creación de un concepto visual unificado para todo el evento.",
+					"precio": 30000
+				}, {
+					"id": 3,
+					"categoria": "Diseño",
+					"nombre": "Recuerdos Personalizados",
+					"descripcion": "Diseño de recuerdos personalizados para los invitados.",
+					"precio": 20000
+				}, {
+					"id": 4,
+					"categoria": "Diseño",
+					"nombre": "Escenografía Temática",
+					"descripcion": "Diseño y montaje de escenografía acorde a la temática elegida.",
+					"precio": 40000
+				}, {
+					"id": 5,
+					"categoria": "Diseño",
+					"nombre": "Menú Personalizado",
+					"descripcion": "Diseño del menú y cartas personalizadas para la comida y bebida.",
+					"precio": 15000
+				}
+			]
+		}
+	]
+}
