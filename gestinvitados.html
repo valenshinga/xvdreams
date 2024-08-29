@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Invitados - XV Dreams</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <header>
+        <h1>Gestión de Invitados</h1>
+        <button onclick="mostrarFormulario()">Agregar Invitado</button>
+    </header>
+
+    <section id="lista-invitados">
+        <h2>Lista de Invitados</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Email</th>
+                    <th>Número de Acompañantes</th>
+                </tr>
+            </thead>
+            <tbody id="cuerpo-tabla">
+                <!-- Aquí irán los invitados -->
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Formulario para agregar invitados -->
+    <div id="formulario" style="display: none;">
+        <h2>Agregar Invitado</h2>
+        <form onsubmit="agregarInvitado(event)">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" required>
+            <label for="email">Email:</label>
+            <input type="email" id="email" required>
+            <label for="num-acompanantes">Número de Acompañantes:</label>
+            <input type="number" id="num-acompanantes" min="0" required>
+            <button type="submit">Agregar</button>
+            <button type="button" onclick="ocultarFormulario()">Cancelar</button>
+        </form>
+    </div>
+
+    <script src="scriptinvi.js"></script>
+</body>
+</html>
