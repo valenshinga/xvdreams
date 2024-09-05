@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/style/home.css">
 </head>
 <body>
 
@@ -31,7 +32,7 @@
                     <a class="nav-link" href="#">Contact</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="busqueda_proveedores.html">Proveedores</a>
+                    <a class="nav-link" href="paginas/busqueda_proveedores.html">Proveedores</a>
                 </li>
             </ul>
         </div>
@@ -65,9 +66,85 @@
         </a>
     </div>
 
-    <!-- Scripts -->
+    <div class="favorites-container">
+        <h4>Favoritos</h4>
+        <div class="favorites">
+            <div class="favorite-item">
+                <img src="/imagenes/catering.jpg" alt="Catering VIP">
+                <span>Catering VIP</span>
+            </div>
+            <div class="favorite-item">
+                <img src="/imagenes/catering.jpg" alt="Chicas Chic">
+                <span>Chicas Chic</span>
+            </div>
+            <div class="favorite-item">
+                <img src="/imagenes/catering.jpg" alt="Dj Rock">
+                <span>Dj Rock</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="featured-container">
+        <h4>Destacados</h4>
+        <div class="featured">
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="3000">
+                <div class="carousel-inner">
+                  <div class="carousel-item active">
+                    <div class="card-deck">
+                      <div class="card">
+                        <img src="..." class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">Card title</h5>
+                          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        </div>
+                      </div>
+                      <div class="card">
+                        <img src="..." class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">Card title</h5>
+                          <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+                          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        </div>
+                      </div>
+                      <div class="card">
+                        <img src="..." class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">Card title</h5>
+                          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+                          <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <div class="card-deck">
+                      <div class="card">
+                        <img src="..." class="card-img-top" alt="...">
+                        <div class="card-body">
+                          <h5 class="card-title">Otra tarjeta</h5>
+                          <p class="card-text">Otro contenido para la segunda tarjeta en el carrusel.</p>
+                          <p class="card-text"><small class="text-muted">Last updated 5 mins ago</small></p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+              </div>
+        </div>
+    </div>
+
+    <!-- Agregar las dependencias JavaScript necesarias -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 </body>
