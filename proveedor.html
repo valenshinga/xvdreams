@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Información del Proveedor</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 id="proveedorNombre" class="mb-4">Información del Proveedor</h1>
+
+
+        <!-- Información del Proveedor -->
+        <div id="proveedorInfo" class="card">
+            <div class="card-body">
+                <p><strong>Razón Social:</strong> <span id="razonSocial"></span></p>
+                <p><strong>Categoría Principal:</strong> <span id="categoriaPrincipal"></span></p>
+                <h4>Información de Contacto</h4>
+                <p><strong>Teléfono:</strong> <span id="telefono"></span></p>
+                <p><strong>Email:</strong> <span id="email"></span></p>
+                <p><strong>Dirección:</strong> <span id="direccion"></span></p>
+                <h4>Servicios</h4>
+                <ul id="listaServicios"></ul>
+            </div>
+        </div>
+
+
+        <!-- Mensaje de error -->
+        <div id="mensajeError" class="alert alert-danger mt-3" style="display: none;">
+            No se pudo cargar la información del proveedor.
+        </div>
+    </div>
+
+
+    <!-- Scripts -->
+    <script>
+        // Función para obtener el parámetro 'id' de la URL
+        function obtenerParametroURL(nombre) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(nombre);
+        }
+
+
+        // Función para cargar la información del proveedor
+        function cargarProveedor(id) {
+            fetch('data.json')
+                .then(response => response.json())
+                .then(data => {
+                    const proveedor = data.proveedores.find(p => p.id == id);
+
+
+                    if (proveedor) {
+                        document.getElementById('proveedorNombre').textContent = proveedor.nombre;
+                        document.getElementById('razonSocial').textContent = proveedor.razonSocial;
+                        document.getElementById('categoriaPrincipal').textContent = proveedor.categoriaPrincipal;
+                        document.getElementById('telefono').textContent = proveedor.contacto.telefono;
+                        document.getElementById('email').textContent = proveedor.contacto.email;
+                        document.getElementById('direccion').textContent = proveedor.contacto.direccion;
+
+
+                        // Cargar los servicios del proveedor
+                        const listaServicios = document.getElementById('listaServicios');
+                        proveedor.servicios.forEach(servicio => {
+                            const servicioItem = document.createElement('li');
+                            servicioItem.textContent = `${servicio.nombre}: $${servicio.precio}`;
+                            listaServicios.appendChild(servicioItem);
+                        });
+                    } else {
+                        mostrarError('Proveedor no encontrado.');
+                    }
+                })
+                .catch(error => {
+                    mostrarError('Error al cargar la información del proveedor: ' + error.message);
+                });
+        }
+
+
+        // Función para mostrar mensajes de error
+        function mostrarError(mensaje) {
+            const mensajeError = document.getElementById('mensajeError');
+            mensajeError.textContent = mensaje;
+            mensajeError.style.display = 'block';
+        }
+
+
+        // Obtener el ID del proveedor de la URL y cargar su información
+        document.addEventListener('DOMContentLoaded', () => {
+            const id = obtenerParametroURL('id');
+            if (id) {
+                cargarProveedor(id);
+            } else {
+                mostrarError('ID del proveedor no especificado.');
+            }
+        });
+    </script>
+</body>
+</html>
