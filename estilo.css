@@ -1,0 +1,67 @@
+/* Estilos generales para la tabla */
+table {
+    width: 100%;
+    border-collapse: collapse; /* Quita el espacio entre bordes */
+    margin: 20px 0; /* Margen superior e inferior */
+}
+
+/* Estilo para las celdas de la tabla */
+th, td {
+    padding: 10px; /* Espaciado dentro de las celdas */
+    border: 1px solid #b89360; /* Borde dorado */
+    text-align: left; /* Alineación del texto */
+}
+
+/* Estilo para el encabezado de la tabla */
+thead {
+    background-color: #f4f4f4; /* Fondo gris claro para el encabezado */
+}
+
+th {
+    background-color: #b89360; /* Fondo dorado para las cabeceras */
+    color: #fff; /* Color del texto en las cabeceras */
+}
+
+/* Estilo para los botones */
+button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    background-color: #b89360; /* Fondo dorado para los botones */
+    cursor: pointer;
+    font-size: 16px; /* Tamaño de fuente */
+}
+
+button:hover {
+    background-color: #a67d4b; /* Color dorado más oscuro al pasar el ratón */
+}
+
+/* Estilo del formulario */
+form {
+    margin: 20px 0; /* Margen superior e inferior */
+    border: 1px solid #b89360; /* Borde dorado alrededor del formulario */
+    padding: 20px; /* Espaciado dentro del formulario */
+    border-radius: 8px; /* Bordes redondeados */
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input, select {
+    width: calc(100% - 20px); /* Ajuste para el padding del formulario */
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #b89360; /* Borde dorado para los campos del formulario */
+    border-radius: 4px; /* Bordes redondeados */
+}
+
+/* Estilo del header */
+header {
+    background-color: #b89360; /* Fondo dorado para el header */
+    color: #fff; /* Color del texto en el header */
+    padding: 20px; /* Espaciado dentro del header */
+    text-align: center; /* Alineación centrada */
+}
