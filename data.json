@@ -6,6 +6,11 @@
 			"razonSocial": "Pepe's",
 			"categoriaPrincipal": "Comida",
 			"balance": 100000,
+            "contacto": {
+                "telefono": "+54 9 11 1234-5678",
+                "email": "pepe@pepes.com",
+                "direccion": "Calle Falsa 123, Buenos Aires, Argentina"
+            },
 			"servicios": [
 				{
 					"id": 1,
@@ -45,6 +50,11 @@
 			"razonSocial": "DJ Magic",
 			"categoriaPrincipal": "DJ",
 			"balance": 80000,
+            "contacto": {
+                "telefono": "+54 9 11 8765-4321",
+                "email": "contacto@djmagic.com",
+                "direccion": "Avenida Siempre Viva 742, Buenos Aires, Argentina"
+            },
 			"servicios": [
 				{
 					"id": 1,
@@ -84,6 +94,11 @@
 			"razonSocial": "Fotografía Momentos",
 			"categoriaPrincipal": "Fotografia",
 			"balance": 120000,
+            "contacto": {
+                "telefono": "+54 9 11 2345-6789",
+                "email": "maria@momentosfotografia.com",
+                "direccion": "Pasaje del Arte 456, Buenos Aires, Argentina"
+            },
 			"servicios": [
 				{
 					"id": 1,
@@ -123,6 +138,11 @@
 			"razonSocial": "Eventos Martínez",
 			"categoriaPrincipal": "Salon",
 			"balance": 150000,
+            "contacto": {
+                "telefono": "+54 9 11 5432-1234",
+                "email": "eventos@martinez.com",
+                "direccion": "Plaza Eventos 789, Buenos Aires, Argentina"
+            },
 			"servicios": [
 				{
 					"id": 1,
@@ -162,6 +182,11 @@
 			"razonSocial": "Diseño Fiesta",
 			"categoriaPrincipal": "Diseño",
 			"balance": 90000,
+             "contacto": {
+                "telefono": "+54 9 11 5678-1234",
+                "email": "carlos@disenofiesta.com",
+                "direccion": "Boulevard de los Diseños 321, Buenos Aires, Argentina"
+            },
 			"servicios": [
 				{
 					"id": 1,
