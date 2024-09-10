@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proveedores de Servicios</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Proveedores de Servicios</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    	<!-- Comienzo de navbar -->
+		<!-- Comienzo de navbar -->
 	<nav class="navbar navbar-expand-lg bg-body-tertiary">
 		<div class="container-fluid">
 			<a class="navbar-brand" href="/index.html"><img src="/images/image_transparent.png" alt="" width="70px" height="70px"></a>
@@ -34,92 +34,92 @@
 		</div>
 	</nav>
 	<!-- Fin de navbar -->
-    <div class="container mt-5">
-        <h2 class="mb-4 text-center">Buscar Proveedores</h2>
-        
-        <!-- Search Form -->
-        <div class="input-group mb-3">
-        <select id="filter-select" class="form-select">
-            <option value="">Selecciona un filtro</option>
-            <option value="name">Buscar por Nombre</option>
-            <option value="service">Buscar por Servicio</option>
-            <option value="city">Buscar por Ciudad</option>
-            <option value="rating">Buscar por Calificación (Descendente)</option>
-        </select>
-        <input type="text" id="search-input" class="form-control" placeholder="Escribe aquí para buscar...">
-        <button id="search-btn" class="btn btn-primary">Buscar</button>
-        </div>
+	<div class="container mt-5">
+		<h2 class="mb-4 text-center">Buscar Proveedores</h2>
+		
+		<!-- Search Form -->
+		<div class="input-group mb-3">
+		<select id="filter-select" class="form-select">
+			<option value="">Selecciona un filtro</option>
+			<option value="name">Buscar por Nombre</option>
+			<option value="service">Buscar por Servicio</option>
+			<option value="city">Buscar por Ciudad</option>
+			<option value="rating">Buscar por Calificación (Descendente)</option>
+		</select>
+		<input type="text" id="search-input" class="form-control" placeholder="Escribe aquí para buscar...">
+		<button id="search-btn" class="btn btn-primary">Buscar</button>
+		</div>
 
-        <!-- Provider Cards -->
-        <div id="provider-list" class="row row-cols-1 row-cols-md-3 g-4">
-        <!-- Aquí se renderizarán las cards de los proveedores -->
-        </div>
-    </div>
+		<!-- Provider Cards -->
+		<div id="provider-list" class="row row-cols-1 row-cols-md-3 g-4">
+		<!-- Aquí se renderizarán las cards de los proveedores -->
+		</div>
+	</div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="script.js"></script>
-    <script>
-        document.getElementById('search-btn').addEventListener('click', function() {
-        const filter = document.getElementById('filter-select').value;
-        const searchText = removeAccents(document.getElementById('search-input').value.toLowerCase());
-        const providerList = document.getElementById('provider-list');
-        
-        // Limpiar lista de proveedores antes de cada búsqueda
-        providerList.innerHTML = '';
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="script.js"></script>
+	<script>
+		document.getElementById('search-btn').addEventListener('click', function() {
+		const filter = document.getElementById('filter-select').value;
+		const searchText = removeAccents(document.getElementById('search-input').value.toLowerCase());
+		const providerList = document.getElementById('provider-list');
+		
+		// Limpiar lista de proveedores antes de cada búsqueda
+		providerList.innerHTML = '';
 
-        // Filtrar proveedores en base a filtro y texto de búsqueda
-        let filteredProviders = providers;
+		// Filtrar proveedores en base a filtro y texto de búsqueda
+		let filteredProviders = providers;
 
-        if (filter === "name" && searchText) {
-            filteredProviders = providers.filter(provider => removeAccents(provider.name.toLowerCase()).includes(searchText));
-        } else if (filter === "service" && searchText) {
-            filteredProviders = providers.filter(provider => removeAccents(provider.service.toLowerCase()).includes(searchText));
-        } else if (filter === "city" && searchText) {
-            filteredProviders = providers.filter(provider => removeAccents(provider.city.toLowerCase()).includes(searchText));
-        } else if (filter === "rating") {
-            filteredProviders = providers.sort((a, b) => b.rating - a.rating); // Ordenar por calificación descendente
-        }
+		if (filter === "name" && searchText) {
+			filteredProviders = providers.filter(provider => removeAccents(provider.name.toLowerCase()).includes(searchText));
+		} else if (filter === "service" && searchText) {
+			filteredProviders = providers.filter(provider => removeAccents(provider.service.toLowerCase()).includes(searchText));
+		} else if (filter === "city" && searchText) {
+			filteredProviders = providers.filter(provider => removeAccents(provider.city.toLowerCase()).includes(searchText));
+		} else if (filter === "rating") {
+			filteredProviders = providers.sort((a, b) => b.rating - a.rating); // Ordenar por calificación descendente
+		}
 
-        // Mostrar todos los proveedores si no hay filtros ni texto de búsqueda
-        if (!filter && !searchText) {
-            filteredProviders = providers;
-        }
+		// Mostrar todos los proveedores si no hay filtros ni texto de búsqueda
+		if (!filter && !searchText) {
+			filteredProviders = providers;
+		}
 
-        // Renderizar las cards de los proveedores filtrados
-        filteredProviders.forEach(provider => {
-            const cardHTML = `
-                <div class="col">
-                <div class="card h-100">
-                    <img src="${provider.image}" class="card-img-top" alt="${provider.name}">
-                    <div class="card-body">
-                    <h5 class="card-title">${provider.name}</h5>
-                    <p class="card-text">Servicio: ${provider.service}</p>
-                    <p class="card-text">Ciudad: ${provider.city}</p>
-                    <p class="card-text">Calificación: ${provider.rating} estrellas</p>
-                    <p class="card-text">Precio: $${provider.price}</p>
-                    </div>
-                </div>
-                </div>
-            `;
-            providerList.innerHTML += cardHTML;
-        });
-    });
+		// Renderizar las cards de los proveedores filtrados
+		filteredProviders.forEach(provider => {
+			const cardHTML = `
+				<div class="col">
+				<div class="card h-100">
+					<img src="${provider.image}" class="card-img-top" alt="${provider.name}">
+					<div class="card-body">
+					<h5 class="card-title">${provider.name}</h5>
+					<p class="card-text">Servicio: ${provider.service}</p>
+					<p class="card-text">Ciudad: ${provider.city}</p>
+					<p class="card-text">Calificación: ${provider.rating} estrellas</p>
+					<p class="card-text">Precio: $${provider.price}</p>
+					</div>
+				</div>
+				</div>
+			`;
+			providerList.innerHTML += cardHTML;
+		});
+	});
 
-    // Función para eliminar acentos (normalización de texto)
-    function removeAccents(str) {
-        return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-    }
+	// Función para eliminar acentos (normalización de texto)
+	function removeAccents(str) {
+		return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+	}
 
-    // Lista de proveedores (simulación, puedes sustituirlo por tu fuente de datos real)
-    const providers = [
-        { name: "Salón Buenos Aires", service: "Salón", city: "Buenos Aires", rating: 4.5, price: 1200, image: "https://via.placeholder.com/150" },
-        { name: "Catering Deluxe", service: "Catering", city: "Córdoba", rating: 5.0, price: 2500, image: "https://via.placeholder.com/150" },
-        { name: "Maquillaje Glamour", service: "Maquillaje", city: "Rosario", rating: 4.0, price: 800, image: "https://via.placeholder.com/150" },
-        // ...más proveedores
-    ];
+	// Lista de proveedores (simulación, puedes sustituirlo por tu fuente de datos real)
+	const providers = [
+		{ name: "Salón Buenos Aires", service: "Salón", city: "Buenos Aires", rating: 4.5, price: 1200, image: "https://via.placeholder.com/150" },
+		{ name: "Catering Deluxe", service: "Catering", city: "Córdoba", rating: 5.0, price: 2500, image: "https://via.placeholder.com/150" },
+		{ name: "Maquillaje Glamour", service: "Maquillaje", city: "Rosario", rating: 4.0, price: 800, image: "https://via.placeholder.com/150" },
+		// ...más proveedores
+	];
 
 
-    </script>
+	</script>
 
 </body>
 </html>
