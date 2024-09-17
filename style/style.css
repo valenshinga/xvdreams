@@ -8,6 +8,24 @@ h4 {
     margin-bottom: 15px;
 }
 
+body {
+    background-color: #f4f4f4;
+}
+
+.card-principal {
+    padding: 20px;
+    margin-top: 20px;
+    margin-left: 100px;
+    margin-right: 100px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+}
+
+.card-principal h4 {
+    border-bottom: 1px solid #b89360;
+    margin-bottom: 40px;
+}
 .favorites, .featured, .section {
     display: flex;
     overflow-x: auto;
