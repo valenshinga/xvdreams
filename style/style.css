@@ -125,3 +125,42 @@ button:hover {
 .page-publications-header {
     margin-bottom: 40px; 
 }
+
+.unique-margin {
+    margin-bottom: 30px;
+}
+
+.todo-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.todo-item.completed {
+    background-color: #d4edda;
+    text-decoration: line-through;
+}
+
+.todo-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.priority-Alta {
+    color: red;
+    font-weight: bold;
+}
+
+.priority-Media {
+    color: orange;
+    font-weight: bold;
+}
+
+.priority-Baja {
+    color: green;
+    font-weight: bold;
+}
