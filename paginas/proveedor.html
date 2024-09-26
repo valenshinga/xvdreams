@@ -11,37 +11,40 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <!-- Navbar igual al anterior -->
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/index.html">Logo</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="/index.html">Inicio</a></li>
+                </ul>
+            </div>
+        </div>
     </nav>
 
     <div class="container mt-5">
         <h1 id="proveedorNombre" class="mb-4">Información del Proveedor</h1>
         <div id="proveedorInfo" class="card">
             <div class="card-body">
-                <h3 id="razonSocial"></h3>
+                <p><strong>Razón Social:</strong> <span id="razonSocial"></span></p>
                 <p><strong>Categoría Principal:</strong> <span id="categoriaPrincipal"></span></p>
-                
-                <!-- Nueva sección de descripción -->
-                <h4>Descripción</h4>
-                <p id="descripcion">Una breve descripción del proveedor irá aquí...</p>
 
-                <!-- Sección de contacto mejorada -->
                 <h4>Información de Contacto</h4>
                 <p><strong>Teléfono:</strong> <span id="telefono"></span></p>
                 <p><strong>Email:</strong> <span id="email"></span></p>
                 <p><strong>Dirección:</strong> <span id="direccion"></span></p>
-                <button class="btn btn-primary">Contactar al Proveedor</button>
 
-                <!-- Añadir una galería de imágenes -->
+                <!-- Nueva sección de descripción -->
+                <h4>Descripción</h4>
+                <p id="descripcion">Una breve descripción del proveedor irá aquí...</p>
+
+                <!-- Galería de Imágenes -->
                 <div id="imagenes" class="mt-4">
                     <h4>Galería de Imágenes</h4>
                     <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img src="https://via.placeholder.com/600" class="d-block w-100" alt="Servicio 1">
-                            </div>
-                            <!-- Más imágenes aquí -->
-                        </div>
+                        <div class="carousel-inner"></div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         </button>
@@ -51,21 +54,9 @@
                     </div>
                 </div>
 
-                <!-- Servicios con detalles -->
+                <!-- Servicios ofrecidos -->
                 <h4 class="mt-4">Servicios Ofrecidos</h4>
                 <ul id="listaServicios" class="list-group list-group-flush"></ul>
-
-        <!-- Sección de Opiniones -->
-        <div class="mt-4">
-            <h4>Opiniones de Clientes</h4>
-            <div id="opiniones">
-                <div class="card mb-3">
-                    <div class="card-body">
-                        <h5>Nombre del Cliente</h5>
-                        <p>Una opinión o comentario sobre el proveedor va aquí...</p>
-                    </div>
-                </div>
-                <!-- Más opiniones aquí -->
             </div>
         </div>
 
@@ -75,7 +66,6 @@
     </div>
 
     <script>
-        // JavaScript para cargar los datos desde data.json y mostrar la información
         function obtenerParametroURL(nombre) {
             const urlParams = new URLSearchParams(window.location.search);
             return urlParams.get(nombre);
@@ -105,8 +95,8 @@
                         `);
                     });
 
-                    // Si hay imágenes, agrega al carrusel
-                    if (proveedor.imagenes) {
+                    // Añadir imágenes al carrusel
+                    if (proveedor.imagenes && proveedor.imagenes.length > 0) {
                         proveedor.imagenes.forEach((imagen, index) => {
                             const activeClass = index === 0 ? 'active' : '';
                             $('#carouselExample .carousel-inner').append(`
@@ -139,3 +129,4 @@
     </script>
 </body>
 </html>
+
