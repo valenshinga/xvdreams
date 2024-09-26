@@ -25,9 +25,18 @@ body {
 .carousel-control-next-icon {
     background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%black'><path d='M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z'/></svg>")
 }
-    .carousel-indicators [data-bs-target] { 
-        background-color: #1e1e1e;
-    }
+.carousel-indicators [data-bs-target] { 
+    background-color: #1e1e1e;
+}
+.carousel-item .gradient-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(to top, #f4f4f4, transparent);
+    pointer-events: none;
+}
 .card-principal {
     padding: 20px;
     margin-top: 20px;
@@ -70,46 +79,32 @@ body {
     height: 150px;
 }
 
-/* Estilos generales para la tabla */
 table {
     width: 100%;
-    border-collapse: collapse; /* Quita el espacio entre bordes */
-    margin: 20px 0; /* Margen superior e inferior */
+    border-collapse: collapse;
+    margin: 20px 0;
 }
 
-/* Estilo para las celdas de la tabla */
 th, td {
-    padding: 10px; /* Espaciado dentro de las celdas */
-    border: 1px solid #b89360; /* Borde dorado */
-    text-align: left; /* Alineación del texto */
+    padding: 10px;
+    border: 1px solid #b89360;
+    text-align: left;
 }
 
-/* Estilo para el encabezado de la tabla */
 thead {
-    background-color: #f4f4f4; /* Fondo gris claro para el encabezado */
+    background-color: #f4f4f4;
 }
 
 th {
-    background-color: #b89360; /* Fondo dorado para las cabeceras */
-    color: #fff; /* Color del texto en las cabeceras */
+    background-color: #b89360;
+    color: #fff;
 }
 
-/* Estilo para los botones */
-button {
-    padding: 10px 15px;
-    border: none;
-    border-radius: 4px;
-    color: #fff;
-    background-color: #b89360; /* Fondo dorado para los botones */
-    cursor: pointer;
-    font-size: 16px; /* Tamaño de fuente */
-}
-/* Estilo del formulario */
 form {
-    margin: 20px 0; /* Margen superior e inferior */
-    border: 1px solid #b89360; /* Borde dorado alrededor del formulario */
-    padding: 20px; /* Espaciado dentro del formulario */
-    border-radius: 8px; /* Bordes redondeados */
+    margin: 20px 0;
+    border: 1px solid #b89360;
+    padding: 20px;
+    border-radius: 8px;
 }
 
 label {
@@ -125,7 +120,7 @@ input, select, textarea {
     border-radius: 4px;
 }
 
-button {
+.button-xvdreams {
     padding: 10px 15px;
     border: none;
     border-radius: 4px;
@@ -135,23 +130,20 @@ button {
     font-size: 16px;
 }
 
-button:hover {
+.button-xvdreams button:hover{
     background-color: #a07a50;
 }
 
-/* Ajustar el tamaño de las imágenes dentro de las cards */
 .card-img-top {
     object-fit: cover;
-    height: 200px; /* Limitar la altura de las imágenes para uniformidad */
+    height: 200px;
 }
 
-/* Estilo opcional para las cards, puedes personalizar los bordes o sombras */
 .card {
     border: 1px solid #ddd;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Ajustar el espaciado de las cards */
 #productList .col {
     margin-bottom: 20px;
 }
