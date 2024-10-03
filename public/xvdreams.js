@@ -14,11 +14,12 @@ const firebaseConfig = {
     storageBucket: "xvdreams-web-app.appspot.com",
     messagingSenderId: "749522060303",
     appId: "1:749522060303:web:b99c6c1acd1c8acb128f7a",
-    measurementId: "G-9LF2MYF720"
+    measurementId: "G-9LF2MYF720",
+    storageBucket: 'gs://xvdreams-web-app.appspot.com'
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
+export const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 // Initialize Cloud Firestore and get a reference to the service
 const db = getFirestore(app);
