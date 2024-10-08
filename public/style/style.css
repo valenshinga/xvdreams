@@ -304,6 +304,7 @@ h2 {
     font-size: 1em; /* Tamaño de fuente del botón */
     padding: 10px 20px; /* Espaciado del botón */
     border: none; /* Sin borde */
+    margin-left: auto;
     border-radius: 5px; /* Bordes redondeados */
     cursor: pointer; /* Cambia el cursor al pasar el mouse */
     transition: background-color 0.3s ease; /* Transición suave al cambiar de color */
@@ -311,4 +312,29 @@ h2 {
 
 .btn-logout:hover {
     background-color: #a07a50; /* Color dorado más oscuro al pasar el mouse */
+}
+
+.input-group .btn {
+    height: 100%; /* Hacer que el botón tenga la misma altura que el campo de entrada */
+}
+
+.tooltip-icon {
+    display: inline-table;
+    margin-right: -20px;
+    padding: 10px 20px; 
+    cursor: pointer;
+    color: #b89360; /* Color dorado */
+}
+
+.tooltip-icon:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    background-color: #f8d7da; /* Fondo del tooltip */
+    color: #721c24; /* Color del texto */
+    padding: 5px;
+    border-radius: 4px;
+    z-index: 10;
+    white-space: nowrap;
+    margin-left :-30px; /* Ajusta la posición si es necesario */
+    top: 35px; /* Ajusta la posición si es necesario */
 }

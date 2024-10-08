@@ -1,7 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
- 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register - XV Dreams</title>
@@ -10,22 +9,41 @@
     <script type="module" src="firebaseconfig.js"></script>
     <script type="module" src="register.js"></script>
 </head>
-
 <body class="register-body">
-    <h1 class="welcome-text">Bienvenido a XV Dreams!</h1>
+    
+    
     <div class="register-container">
         <h2>XV Dreams</h2>
+
+        <div class="welcome-text">¡Bienvenido! Regístrate para continuar.</div>
+        <div id="error-message" class="alert alert-danger" style="display: none;">
+            <!-- Aquí aparecerán los mensajes de error -->
+        </div>
         <form id="register-form">
             <div class="mb-3">
                 <label for="email" class="form-label">Email address</label>
                 <input type="email" class="form-control" id="email" required>
             </div>
-            <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" id="password" required>
+       
+                
+                <div class="mb-3">
+                    <label for="password" class="form-label">Password</label>
+                    <div class="input-group">
+                        <input type="password" class="form-control" id="password" required>
+                        <button type="button" id="toggle-password" class="btn btn-outline-secondary">Mostrar</button>
+                        <span class="tooltip-icon" data-tooltip="La contraseña debe tener al menos 6 caracteres, letras y un número.">   ?</
+                    </div>
+                </div>  
+
+
             </div>
-            <button type="submit" class="btn btn-register">Register</button>
+            <button type="submit" class="btn btn-primary">Register</button>
         </form>
+        
+        <p>¿Ya tienes una cuenta? <a href="login.html">Inicia sesión aquí</a>.</p>
     </div>
 </body>
 </html>
+
+
+
