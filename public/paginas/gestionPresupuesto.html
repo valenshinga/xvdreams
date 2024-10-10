@@ -10,6 +10,7 @@
 	<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 	<link rel="stylesheet" href="https://cdn.datatables.net/2.1.6/css/dataTables.dataTables.css" />
 	<script src="https://cdn.datatables.net/2.1.6/js/dataTables.js"></script>
+	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 	<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 	<link rel="stylesheet" href="/style/icofont/icofont.min.css">
@@ -54,9 +55,11 @@
 		</div>
 	</nav>
 	<!-- Fin de navbar -->
-	<!-- <div class="d-flex justify-content-center mt-4">
-		<h1>Tu presupuesto:</h1>
-	</div> -->
+	
+	<div class="d-flex justify-content-center mt-4">
+		<h1>Tu presupuesto</h1>
+	</div>
+
 	<div class="row mt-4">
 		<div class="col-lg-5">
 			<div class="card shadow-sm p-3 mb-5 bg-body-tertiary rounded" style="width: 100%; margin-left: 15px; height: 40em;">
@@ -101,18 +104,27 @@
 				<div class="modal-body">
 					<input type="number" id="hiddenIndex" value="" style="display: none;">
 					<div class="mb-3 row">
-						<label for="nombreMonto" class="col-sm-2 col-form-label">Titulo</label>
+						<label for="nombreMonto" class="col-sm-2 col-form-label">Título</label>
 						<div class="col-sm-10">
-							<input type="text" class="form-control" id="nombreMonto" value="" title="Agrégale un titulo al gasto">
+							<input type="text" class="form-control" id="nombreMonto" value="" title="Agrégale un título al gasto">
 						</div>
 					</div>
 					<div class="row">
+						<label for="categoriaGasto" class="col-sm-2 col-form-label">Categoría</label>
+						<div class="col-sm-10">
+							<select id="categoriaGasto" class="form-control">
+								<option value="" selected>Selecciona una categoría</option>
+								<!-- Aquí se cargan dinámicamente las categorías -->
+							</select>
+						</div>
+					</div>
+					<div class="row mt-2">
 						<label for="monto" class="col-sm-2 col-form-label">Monto</label>
 						<div class="col-sm-10">
 							<input type="number" class="form-control" id="monto" value="">
 						</div>
 					</div>			
-				</div>
+				</div>				
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
 					<button id="btnGuardarMonto" type="button" onclick="agregarMonto()" class="btn btn-success">Guardar</button>
@@ -167,32 +179,32 @@
 		let modalGrafico = new bootstrap.Modal(document.getElementById('modalGrafico'));
 		let modalPresupuesto = new bootstrap.Modal(document.getElementById('modalPresupuesto'));
 		var myPieChart;
-		let tablaPresupuestos
+		let tablaPresupuestos;
+		
 		$(document).ready(function() {
 			$('cbCategoria').select2();
 			var ctx = $('#myChart');
 			tablaPresupuestos = new DataTable('#tablaPresupuestos', {
-				responsive:true,
 				responsive: true,
 				scrollX: true,
-				searching:true,
-				ordering:true,
+				searching: true,
+				ordering: true,
 				language: {
-					"decimal":"",
-					"emptyTable":"No has agregado presupuestos. ¡Agrega uno!",
-					"info":"",
-					"infoEmpty":"0 de 0",
-					"infoFiltered":"(Filtrado de _MAX_ en total)",
-					"infoPostFix":"",
-					"thousands":".",
-					"lengthMenu":"_MENU_",
+					"decimal": "",
+					"emptyTable": "No has agregado presupuestos. ¡Agrega uno!",
+					"info": "",
+					"infoEmpty": "0 de 0",
+					"infoFiltered": "(Filtrado de _MAX_ en total)",
+					"infoPostFix": "",
+					"thousands": ".",
+					"lengthMenu": "_MENU_",
 					"loadingRecords": "Cargando...",
-					"processing":"",
-					"search":"Buscar: ",
-					"zeroRecords":"No se encontraron coincidencias",
+					"processing": "",
+					"search": "Buscar: ",
+					"zeroRecords": "No se encontraron coincidencias",
 					"paginate": {
-						"next":"Siguiente",
-						"previous":"Anterior"
+						"next": "Siguiente",
+						"previous": "Anterior"
 					},
 				},
 				scrollCollapse: false,
@@ -209,12 +221,13 @@
 					}
 				]
 			});
+	
 			myPieChart = new Chart(ctx, {
 				type: 'bar',
 				data: {
-					labels: [],  
+					labels: [],
 					datasets: [{
-						data: [],  
+						data: [],
 						label: [],
 						backgroundColor: [],
 						borderColor: [],
@@ -249,31 +262,32 @@
 							showModalGrafico(index);
 						}
 					}
+
 				}
 			});
-		}); 
-		
-		function deleteMonto() {
-			var index = $("#hiddenIndex").val();
-			if (index !== null && index < myPieChart.data.labels.length) { 
-				myPieChart.data.labels.splice(index, 1); 
-				myPieChart.data.datasets[0].data.splice(index, 1); 
-				myPieChart.data.datasets[0].backgroundColor.splice(index, 1); 
-				myPieChart.data.datasets[0].borderColor.splice(index, 1); 
-				myPieChart.update(); 
-			} 
-			modalGrafico.hide();
-		}
+	
+			// Agregar funcionalidad para que no permita agregar un gasto sin presupuesto
+			$('#btnAddGasto').on('click', function() {
+				if (tablaPresupuestos.rows().data().length === 0) {
+					Swal.fire({
+						icon: 'error',
+						title: 'Error',
+						text: 'No puedes agregar un gasto sin haber creado un presupuesto primero.',
+						confirmButtonColor: '#d33'
+					});
+				} else {
+					showModalGrafico(null);
+				}
+			});
+		});
+	
+		// Mostrar modal para agregar un gasto
+		function showModalGrafico(index) {
+			actualizarOpcionesCategorias(); // Llenar dinámicamente las opciones de categorías
 
-		function getRandomColor() {
-			var r = Math.floor(Math.random() * 156) + 50;  
-			var g = Math.floor(Math.random() * 156) + 50;  
-			var b = Math.floor(Math.random() * 156) + 50;  
-			var alpha = 0.5;
-			return `rgba(${r}, ${g}, ${b}, ${alpha})`;
-		}
+			// Asegurarse de que el select de categoría esté vacío por defecto
+			$("#categoriaGasto").val('').trigger('change');
 
-		function showModalGrafico(index){
 			if (index !== null) {
 				$("#hiddenIndex").val(index);
 				$("#nombreMonto").val(myPieChart.data.labels[index]);
@@ -292,30 +306,76 @@
 			modalGrafico.show();
 		}
 
-		$('#btnAddGasto').on('click', function() {
-			showModalGrafico(null);
-		});
 
-		function agregarMonto(){
+	
+		function deleteMonto() {
+			var index = $("#hiddenIndex").val();
+			if (index !== null && index < myPieChart.data.labels.length) {
+				myPieChart.data.labels.splice(index, 1);
+				myPieChart.data.datasets[0].data.splice(index, 1);
+				myPieChart.data.datasets[0].backgroundColor.splice(index, 1);
+				myPieChart.data.datasets[0].borderColor.splice(index, 1);
+				myPieChart.update();
+			}
+			modalGrafico.hide();
+		}
+	
+		function getRandomColor() {
+			var r = Math.floor(Math.random() * 156) + 50;
+			var g = Math.floor(Math.random() * 156) + 50;
+			var b = Math.floor(Math.random() * 156) + 50;
+			var alpha = 0.5;
+			return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+		}
+	
+		function agregarMonto() {
 			var label = $("#nombreMonto").val();
-			var value = $("#monto").val();
-			var color = getRandomColor();
+			var value = parseFloat($("#monto").val());
+			var categoriaSeleccionada = $("#categoriaGasto").val();
+
+			// Encontrar el presupuesto asignado a la categoría seleccionada
+			var presupuesto = presupuestos.find(p => p.categoria === categoriaSeleccionada);
+
+			// Calcular el total gastado en esta categoría
+			var totalGastado = gastos.filter(g => g.categoria === categoriaSeleccionada).reduce((sum, gasto) => sum + gasto.monto, 0);
+
+			if (totalGastado + value > presupuesto.monto) {
+					Swal.fire({
+						icon: 'error',
+						title: 'Error',
+						text: 'El gasto excede el presupuesto asignado para esta categoría.',
+						confirmButtonColor: '#d33'
+					});
+					return; // Salir de la función para evitar agregar el gasto
+				}
+
+			// Agregar el gasto si todo está bien (no excede el presupuesto)
 			if (label && value) {
+				gastos.push({ categoria: categoriaSeleccionada, monto: value });
+
 				myPieChart.data.labels.push(label);
 				myPieChart.data.datasets[0].label.push(label);
-				myPieChart.data.datasets[0].data.push(parseFloat(value));
+				myPieChart.data.datasets[0].data.push(value);
+
+				var color = getRandomColor();
 				myPieChart.data.datasets[0].backgroundColor.push(color);
-				myPieChart.data.datasets[0].borderColor.push(color.replace(/[\d.]+\)$/g, '1)')); 
+				myPieChart.data.datasets[0].borderColor.push(color.replace(/[\d.]+\)$/g, '1)'));
 				myPieChart.update();
 				modalGrafico.hide();
 			}
+			
 		}
 
-		function updateMonto(){
+
+
+
+
+	
+		function updateMonto() {
 			var index = $("#hiddenIndex").val();
 			var newLabel = $("#nombreMonto").val();
 			var newValue = $("#monto").val();
-
+	
 			if (newLabel !== null && newValue !== null) {
 				myPieChart.data.labels[index] = newLabel;
 				myPieChart.data.datasets[0].data[index] = parseFloat(newValue);
@@ -323,34 +383,188 @@
 				modalGrafico.hide();
 			}
 		}
-
+	
 		function capitalize(s) {
 			return s[0].toUpperCase() + s.slice(1);
 		}
-
-		function agregarPresupuesto(){
-			var categoria = capitalize($("#cbCategoria").val());
-			var monto = $("#montoPresupuesto").val();
-			var color = getRandomColor();
-			if (categoria && monto) {
-				tablaPresupuestos.row.add({categoria:categoria,monto:monto}).draw()
-				modalPresupuesto.hide();
-			}
-		}
-
+	
+		// Mostrar modal para agregar presupuesto
 		function showModalPresupuesto(){
 			$("#hiddenIndex").val('');
 			$("#btnGuardarPresupuesto").show();
 			$("#btnEliminarPresupuesto").hide();
 			$("#btnActualizarPresupuesto").hide();
-			$("#cbCategoria").val('');
+			$("#cbCategoria").val(''); // Limpia el select cada vez que se abre
 			$("#montoPresupuesto").val('');
 			modalPresupuesto.show();
 		}
-
+	
 		$('#btnAddPresupuesto').on('click', function() {
-			showModalPresupuesto(null);
+			showModalPresupuesto();
 		});
+	
+		function agregarPresupuesto() {
+			var categoria = capitalize($("#cbCategoria").val());
+			var monto = $("#montoPresupuesto").val();
+
+			var categoriaRepetida = false;
+			$('#tablaPresupuestos tbody tr').each(function () {
+				var categoriaExistente = $(this).find('td:first').text();
+				if (categoriaExistente === categoria) {
+					categoriaRepetida = true;
+				}
+			});
+
+			if (categoriaRepetida) {
+				Swal.fire({
+					icon: 'error',
+					title: 'Categoría repetida',
+					text: 'La categoría "' + categoria + '" ya ha sido añadida al presupuesto.',
+					confirmButtonColor: '#d33'
+				});
+			} else {
+				if (categoria && monto) {
+					tablaPresupuestos.row.add({ categoria: categoria, monto: monto }).draw();
+					actualizarOpcionesCategorias();  // Llamar a la función para actualizar el select
+					modalPresupuesto.hide();
+				}
+			}
+		}
+
+	
+		function actualizarOpcionesCategorias() {
+			var categorias = [];
+			$('#tablaPresupuestos tbody tr').each(function () {
+				var categoria = $(this).find('td:first').text();
+				categorias.push(categoria);
+			});
+
+			var selectCategoria = $('#categoriaGasto');
+			selectCategoria.empty(); // Limpiar el select antes de llenarlo
+
+			if (categorias.length === 0) {
+				selectCategoria.append($('<option></option>').val('').text('No hay categorías disponibles'));
+			} else {
+				categorias.forEach(function(categoria) {
+					var option = $('<option></option>').val(categoria).text(categoria);
+					selectCategoria.append(option);
+				});
+			}
+		}
+
+		let gastos = [];  // Array para almacenar los gastos
+		let presupuestos = [];  // Array para almacenar los presupuestos
+
+		// Función para guardar el presupuesto en el array
+		function agregarPresupuesto() {
+			var categoria = capitalize($("#cbCategoria").val());
+			var monto = parseFloat($("#montoPresupuesto").val());
+
+			if (categoria && monto) {
+				// Guardar el presupuesto en el array de presupuestos
+				presupuestos.push({
+					categoria: categoria,
+					monto: monto
+				});
+
+				// Actualizar la tabla de presupuestos
+				tablaPresupuestos.row.add({ categoria: categoria, monto: monto }).draw();
+				actualizarOpcionesCategorias();  // Llamar a la función para actualizar el select de categorías
+				modalPresupuesto.hide();
+			}
+		}
+
+		// Función para obtener el presupuesto asignado a una categoría
+		function obtenerPresupuestoParaCategoria(categoria) {
+			let presupuesto = presupuestos.find(p => p.categoria === categoria);
+			return presupuesto ? presupuesto.monto : 0;
+		}
+
+		// Función para calcular el total de gastos por categoría
+		function calcularTotalGastosPorCategoria(categoria) {
+			let total = 0;
+			gastos.forEach(gasto => {
+				if (gasto.categoria === categoria) {
+					total += gasto.monto;
+				}
+			});
+			return total;
+		}
+
+		// Función para verificar si el gasto excede el presupuesto
+		function verificarExcesoDeGasto(categoria, montoNuevoGasto) {
+			let presupuestoAsignado = obtenerPresupuestoParaCategoria(categoria);
+			let totalGastosCategoria = calcularTotalGastosPorCategoria(categoria);
+
+			// Si el gasto nuevo excede el presupuesto asignado, mostrar alerta
+			if ((totalGastosCategoria + montoNuevoGasto) > presupuestoAsignado) {
+				Swal.fire({
+					icon: 'error',
+					title: 'Presupuesto excedido',
+					text: `El gasto total para la categoría "${categoria}" excede el presupuesto asignado.`,
+					confirmButtonColor: '#d33'
+				});
+				return false;
+			}
+			return true;
+		}
+
+		// Función para guardar el gasto en el array
+		function guardarGasto() {
+			let categoriaSeleccionada = $("#categoriaGasto").val();
+			let montoNuevoGasto = parseFloat($("#monto").val());
+
+			// Verificar si el gasto excede el presupuesto
+			if (verificarExcesoDeGasto(categoriaSeleccionada, montoNuevoGasto)) {
+				// Si no excede, agregar el gasto al array
+				gastos.push({
+					categoria: categoriaSeleccionada,
+					monto: montoNuevoGasto
+				});
+
+				// Actualizar gráfico o tabla con el nuevo gasto
+				myPieChart.data.labels.push(categoriaSeleccionada);
+				myPieChart.data.datasets[0].data.push(montoNuevoGasto);
+				myPieChart.update();
+
+				// Cerrar el modal después de agregar el gasto
+				modalGrafico.hide();
+			}
+		}
+
+		// Asociar la función guardarGasto al botón de guardar gasto
+		$('#btnGuardarMonto').off('click').on('click', function() {
+			agregarMonto();
+		});
+
+
+		var myPieChart = new Chart(ctx, {
+			type: 'bar',
+			data: {
+				labels: [], // Solo las categorías deberían ir aquí
+				datasets: [{
+					data: [], // Los montos van aquí
+					backgroundColor: [],
+					borderColor: [],
+					borderWidth: 2,
+					borderRadius: 5
+				}]
+			},
+			options: {
+				responsive: true,
+				plugins: {
+					legend: { display: false }, // Asegúrate que no esté mostrando leyendas innecesarias
+					title: { display: true, text: 'Gastos' }
+				},
+				scales: {
+					y: { beginAtZero: true }
+				}
+			}
+		});
+
+
+
 	</script>
+	
 </body> 
 </html> 
