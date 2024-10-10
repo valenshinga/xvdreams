@@ -1,15 +1,15 @@
 import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-auth.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
 
-const auth = getAuth();
-const logoutContainer = document.getElementById('logoutContainer');
+const firebaseConfig = {
+    apiKey: "AIzaSyBKt7HeL4fjrFqEKwdWd5gByRS2YL8BAfs",
+    authDomain: "xvdreams-web-app.firebaseapp.com",
+    projectId: "xvdreams-web-app",
+    storageBucket: "xvdreams-web-app.appspot.com",
+    messagingSenderId: "749522060303",
+    appId: "1:749522060303:web:b99c6c1acd1c8acb128f7a",
+    measurementId: "G-9LF2MYF720"
+};
 
-// Escuchar cambios en el estado de autenticación
-onAuthStateChanged(auth, (user) => {
-    if (user) {
-        // Usuario está autenticado
-        logoutContainer.style.display = 'block'; // Muestra el botón de logout
-    } else {
-        // Usuario no está autenticado
-        logoutContainer.style.display = 'none'; // Oculta el botón de logout
-    }
-});
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
