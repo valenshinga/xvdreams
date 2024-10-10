@@ -10,13 +10,11 @@ document.getElementById('login-form').addEventListener('submit', (event) => {
 
     signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
-            // Login exitoso
             
             window.location.href = "index.html"; // Redirigir a la página principal
         })
         .catch((error) => {
             let errorMessage;
-            console.log(error.code); // Mostrar el código de error en la consola para depuración
 
             // Manejo de diferentes tipos de error de autenticación
             switch (error.code) {
