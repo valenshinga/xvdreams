@@ -127,7 +127,7 @@
 				</div>				
 				<div class="modal-footer">
 					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-					<button id="btnGuardarMonto" type="button" onclick="agregarMonto()" class="btn btn-success">Guardar</button>
+					<button id="btnGuardarMonto" type="button" class="btn btn-success">Guardar</button>
 					<button id="btnActualizarMonto" type="button" onclick="updateMonto()" class="btn btn-success">Aceptar</button>
 					<button id="btnEliminar" type="button" onclick="deleteMonto()" class="btn btn-danger">Eliminar</button>
 				</div>
@@ -339,7 +339,19 @@
 			// Calcular el total gastado en esta categoría
 			var totalGastado = gastos.filter(g => g.categoria === categoriaSeleccionada).reduce((sum, gasto) => sum + gasto.monto, 0);
 
-			if (totalGastado + value > presupuesto.monto) {
+			// Verificar si el presupuesto existe
+			if (presupuesto) {
+				// Verificar si el gasto lleva al total exacto del presupuesto
+				if (totalGastado + value === presupuesto.monto) {
+					Swal.fire({
+						icon: 'warning',
+						title: 'Atención',
+						text: 'Has alcanzado el presupuesto asignado para esta categoría.',
+						confirmButtonColor: '#3085d6'
+					});
+				} 
+				// Verificar si el nuevo total excede el presupuesto
+				else if (totalGastado + value > presupuesto.monto) {
 					Swal.fire({
 						icon: 'error',
 						title: 'Error',
@@ -348,6 +360,7 @@
 					});
 					return; // Salir de la función para evitar agregar el gasto
 				}
+			}
 
 			// Agregar el gasto si todo está bien (no excede el presupuesto)
 			if (label && value) {
@@ -363,8 +376,8 @@
 				myPieChart.update();
 				modalGrafico.hide();
 			}
-			
 		}
+
 
 
 
@@ -533,7 +546,7 @@
 		}
 
 		// Asociar la función guardarGasto al botón de guardar gasto
-		$('#btnGuardarMonto').off('click').on('click', function() {
+		$('#btnGuardarMonto').on('click', function() {
 			agregarMonto();
 		});
 
