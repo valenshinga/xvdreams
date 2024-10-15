@@ -2,7 +2,7 @@ import { collection, query, where, getDocs } from "https://www.gstatic.com/fireb
 import { db } from "../xvdreams.js";
 
 $(document).ready(function () {
-    $("#loader").show()
+    $("#loader").hide()
     function removeAccents(str) {
         return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
     }
@@ -50,7 +50,7 @@ $(document).ready(function () {
                     <img src="https://via.placeholder.com/150" class="card-img-top" alt="${provider.nombre}">
                     <div class="card-body">
                         <h5 class="card-title">${provider.nombre}</h5>
-                        <p class="card-text">Servicio: ${provider.categoriaPrincipal}</p>
+                        <p class="card-text">Servicio: ${provider.servicios[0].categoria}</p>
                         <p class="card-text">Ciudad: ${provider.direccion}</p>
                         <p class="card-text">Razón Social: ${provider.razonSocial}</p>
                         <button type="button" class="btnMostrarInfo btn btn-info button-xvdreams" data-id="${provider.id}">Más información</button>
