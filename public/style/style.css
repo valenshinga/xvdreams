@@ -338,6 +338,48 @@ h2 {
     margin-left :-30px; /* Ajusta la posición si es necesario */
     top: 35px; /* Ajusta la posición si es necesario */
 }
+body {
+    background-color: #f7f7f7;
+}
+
+header h1 {
+    color: #a07a50; /* Un color atractivo para el título */
+}
+
+.table th {
+    background-color: #ffeeef; /* Color de fondo para encabezados de la tabla */
+    color: #333; /* Color del texto en el encabezado */
+}
+
+.table td {
+    transition: background-color 0.3s; /* Transición suave para el hover */
+}
+
+.table td:hover {
+    background-color: #f1c1c6; /* Color al pasar el mouse sobre las filas */
+}
+
+
+.btn-primary {
+    background-color: #a07a50; /* Color primario para botones */
+    border-color: #a07a50; /* Color del borde del botón */
+}
+
+.btn-success {
+    background-color: #a07a50;/* Color para el botón de agregar */
+    border-color: #a07a50; /* Color del borde del botón de agregar */
+}
+
+.btn-success:hover {
+    background-color: #866137  !important; /* Color dorado más oscuro al pasar el mouse */
+    border-color: #a07b50 !important; /* Color del borde al pasar el mouse */
+}
+
+.btn-danger {
+    background-color: #fc574c; /* Color para el botón de cancelar */
+    border-color: #f44336; /* Color del borde del botón de cancelar */
+}
+
 
 .dots-container {
     display: flex;
