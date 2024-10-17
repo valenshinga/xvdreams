@@ -13,6 +13,7 @@ h4 {
 
 body {
     background-color: #fce3e3 !important;
+    font-family: 'Montserrat';
 }
 
 .carousel-control-prev, .carousel-control-next {
@@ -194,7 +195,6 @@ input, select, textarea {
 
 
 .login-container {
-    font-family: 'Glory'; 
     padding: 30px; /* Espacio interior reducido */
     border: 2px solid #b89360; /* Color dorado */
     border-radius: 10px;
@@ -248,7 +248,6 @@ h2 {
 
 body.register-body {
     background-color: #f8d9e5; /* Color de fondo rosa claro */
-    font-family: 'Glory'; /* Aplicando la fuente Glory */
     height: 100vh; /* Asegúrate de que ocupe toda la altura de la ventana */
     margin: 0; /* Eliminar margen para que el fondo se aplique correctamente */
     display: flex;
@@ -265,14 +264,21 @@ body.register-body {
 }
 
 .register-container {
-    padding: 30px; /* Espacio interior reducido */
-    border: 2px solid #b89360; /* Color dorado */
+    padding: 30px;
+    border: 2px solid #b89360;
     border-radius: 10px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    background-color: #fff; /* Fondo blanco para el contenedor del registro */
-    text-align: center; /* Centrar el texto dentro del contenedor */
-    max-width: 400px; /* Ancho máximo del contenedor */
-    width: 100%; /* Hacer que el contenedor ocupe el 100% de su padre */
+    background-color: #fff;
+    text-align: center;
+    width: 60%;
+}
+.register-form{
+    display: flex;
+    gap: 20px;
+}
+.mitadForm{
+    width: 100%;
+    display: inline-block;
 }
 
 h2 {
@@ -296,6 +302,10 @@ h2 {
 
 .btn-register:hover {
     background-color: #a07a50; /* Color dorado más oscuro */
+}
+
+.form-control{ 
+    padding-left: 40px;
 }
 
 .btn-logout {
