@@ -32,7 +32,7 @@ if (login){
 
 		signInWithEmailAndPassword(auth, email, password)
 			.then((userCredential) => {
-				window.location.href = "../../index.html";
+				window.location.href = "../index.html";
 			})
 			.catch((error) => {
 				let errorMessage;
@@ -130,7 +130,7 @@ if (register){
 
 		createUserWithEmailAndPassword(auth, email, password)
 			.then((userCredential) => {
-				window.location.href = "../../index.html"; // Cambia según sea necesario
+				window.location.href = "../index.html"; // Cambia según sea necesario
 			})
 			.catch((error) => {
 				const errorCode = error.code;
