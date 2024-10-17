@@ -1,5 +1,5 @@
 import { collection, query, where, getDocs } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
-import { db } from "xvdreams.js";
+import { db } from "../scripts/xvdreams.js";
 
 $(document).ready(function() {
     // Simular carga de proveedores desde el archivo data.json

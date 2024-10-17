@@ -1,5 +1,5 @@
 import { doc, getDoc } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
-import { db } from "xvdreams.js";
+import { db } from "../scripts/xvdreams.js";
 
 function obtenerParametroURL(nombre) {
     const urlParams = new URLSearchParams(window.location.search);

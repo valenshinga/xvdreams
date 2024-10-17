@@ -32,7 +32,7 @@ if (login){
 
 		signInWithEmailAndPassword(auth, email, password)
 			.then((userCredential) => {
-				window.location.href = "./home.html";
+				window.location.href = "../home.html";
 			})
 			.catch((error) => {
 				let errorMessage;

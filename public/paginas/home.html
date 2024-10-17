@@ -12,7 +12,7 @@
 	<script type="module" src="./authentication/authentication.js"></script>
 </head>
 <body>
-	<nav class="navbar navbar-expand-lg bg-body-tertiary" style="background-color: #ffeeef !important;">
+	<nav class="navbar navbar-expand-lg bg-body-tertiary" style="background-color: #ffeeef !important; z-index: 100;">
 		<div class="container-fluid">
 			<a class="navbar-brand" href="home.html"><img src="../images/image_transparent.png" alt="Logo" width="70px" height="70px"></a>
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,12 +28,9 @@
 							Gestión
 						</a>
 						<ul class="dropdown-menu">
-							<li><a class="dropdown-item" href="gestionPresupuesto.html">
-								<i class="icofont-coins"></i> Gestión de presupuesto
-							</a></li>
-							<li><a class="dropdown-item" href="gestionInvitados.html">
-								<i class="icofont-duotone icofont-envelope"></i> Gestión de invitados
-							</a></li>
+							<li><a class="dropdown-item" href="gestionPresupuesto.html">Presupuesto</a></li>
+							<li><a class="dropdown-item" href="gestionInvitados.html">invitados</a></li>
+							<li><a class="dropdown-item" href="toDoUser.html">Gestión de tareas</a></li>
 						</ul>
 					</li>
 					<li class="nav-item">
@@ -51,7 +48,7 @@
 			</div>
 		</div>
 	</nav>
-	<div class="d-flex justify-content-center"> 
+	<div class="d-flex justify-content-center" style="position: relative; z-index: 1;"> 
 		<div class="card" style="width: 100%;border-width: 0px !important;box-shadow: none;">
 			<div class="card-body" style="padding: 0px;">
 				<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carouselPrincipal">
