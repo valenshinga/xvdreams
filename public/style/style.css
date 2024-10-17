@@ -338,61 +338,45 @@ h2 {
     margin-left :-30px; /* Ajusta la posición si es necesario */
     top: 35px; /* Ajusta la posición si es necesario */
 }
-
-.dots-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    width: 100%;
-  }
-
-.dot {
-    height: 20px;
-    width: 20px;
-    margin-right: 10px;
-    border-radius: 10px;
-    background-color: #ffeeef;
-    animation: pulse 1.5s infinite ease-in-out;
+body {
+    background-color: #f7f7f7;
 }
 
-.dot:last-child {
-    margin-right: 0;
-    animation-delay: 0.5s;
+header h1 {
+    color: #a07a50; /* Un color atractivo para el título */
 }
 
-.dot:nth-child(1) {
-    animation-delay: 0.1s;
+.table th {
+    background-color: #ffeeef; /* Color de fondo para encabezados de la tabla */
+    color: #333; /* Color del texto en el encabezado */
 }
 
-.dot:nth-child(2) {
-    animation-delay: 0.2s;
+.table td {
+    transition: background-color 0.3s; /* Transición suave para el hover */
 }
 
-.dot:nth-child(3) {
-    animation-delay: 0.3s;
+.table td:hover {
+    background-color: #f1c1c6; /* Color al pasar el mouse sobre las filas */
 }
 
-.dot:nth-child(4) {
-    animation-delay: 0.4s;
+
+.btn-primary {
+    background-color: #a07a50; /* Color primario para botones */
+    border-color: #a07a50; /* Color del borde del botón */
 }
 
-@keyframes pulse {
-    0% {
-        transform: scale(0.8);
-        background-color: #ffeeef;
-        box-shadow: 0 0 0 0 rgba(255, 238, 239, 0.7);
-    }
-
-    50% {
-        transform: scale(1.2);
-        background-color: #ffb3c6;
-        box-shadow: 0 0 0 10px rgba(255, 238, 239, 0);
-    }
-
-    100% {
-        transform: scale(0.8);
-        background-color: #ffeeef;
-        box-shadow: 0 0 0 0 rgba(255, 238, 239, 0.7);
-    }
+.btn-success {
+    background-color: #a07a50;/* Color para el botón de agregar */
+    border-color: #a07a50; /* Color del borde del botón de agregar */
 }
+
+.btn-success:hover {
+    background-color: #866137  !important; /* Color dorado más oscuro al pasar el mouse */
+    border-color: #a07b50 !important; /* Color del borde al pasar el mouse */
+}
+
+.btn-danger {
+    background-color: #fc574c; /* Color para el botón de cancelar */
+    border-color: #f44336; /* Color del borde del botón de cancelar */
+}
+
