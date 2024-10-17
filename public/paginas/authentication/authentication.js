@@ -80,7 +80,7 @@ const logoutButton = document.getElementById('logoutButton');
 if(logoutButton){
 	logoutButton.addEventListener('click', () => {
 		signOut(auth).then(() => {
-			window.location.href = 'paginas/authentication/login.html'; // Redirige a la página de inicio de sesión.
+			window.location.href = '../paginas/authentication/login.html'; // Redirige a la página de inicio de sesión.
 		}).catch((error) => {
 			console.error("Error during logout:", error);
 		});
