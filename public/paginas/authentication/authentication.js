@@ -171,7 +171,7 @@ onAuthStateChanged(auth, (user) => {
 		} else {
 			if (logoutContainer)
 				logoutContainer.style.display = 'none';
-			window.location.href = '/public/paginas/authentication/login.html';
+			window.location.href = '../paginas/authentication/login.html';
 		}
 	}
 });

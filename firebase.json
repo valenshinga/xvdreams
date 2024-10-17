@@ -5,6 +5,12 @@
   },
   "hosting": {
     "public": "public",
+    "rewrites": [
+      {
+        "source": "/",
+        "destination": "/paginas/index.html"
+      }
+    ],
     "ignore": [
       "firebase.json",
       "**/.*",
