@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios - XV Dreams</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Cinzel', serif;
+            background-color: #fcecec; /* Rosita claro */
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            color: #d4af37; /* Doradito */
+            margin-top: 20px;
+            font-size: 36px; /* Tamaño más grande */
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px;
+        }
+
+        .service-box {
+            background-color: white;
+            border: 2px solid #d4af37; /* Bordes dorados */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 45%;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .service-box img {
+            width: 400px;
+            height: 220px;
+            border-radius: 8px;
+            border: 3px solid #d4af37; /* Borde doradito */
+            margin-bottom: 10px;
+        }
+
+        .service-box h2 {
+            color: #d4af37; /* Doradito */
+            margin-bottom: 10px;
+            font-size: 22px;
+        }
+
+        .service-box p {
+            color: #333;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .service-box button {
+            background-color: #d4af37; /* Dorado */
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            margin-top: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .service-box button:hover {
+            background-color: #b8942d;
+        }
+
+        .more {
+            text-align: center;
+            font-size: 30px; /* Tamaño más grande */
+            color: #d4af37;
+            margin-top: 40px;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .service-box {
+                width: 90%;
+            }
+
+            .service-box img {
+                width: 100%; /* Ajuste para pantallas pequeñas */
+                height: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Servicios que Ofrecemos</h1>
+
+    <div class="container">
+        <!-- Fotografía -->
+        <div class="service-box">
+            <img src="../images/home/fotografo.png" alt="Fotografía">
+            <h2>Fotografía</h2>
+            <p>Captura los momentos más especiales de tu fiesta de 15 años con nuestro servicio de fotografía profesional.</p>
+            <button onclick="window.location.href='Registro.html'">Ver opciones</button>
+        </div>
+
+        <!-- Catering -->
+        <div class="service-box">
+            <img src="../images/home/catering.png" alt="Catering">
+            <h2>Catering</h2>
+            <p>Ofrecemos una selección exquisita de platillos para satisfacer a todos tus invitados en ese día especial.</p>
+            <button onclick="window.location.href='Registro.html'">Ver opciones</button>
+        </div>
+
+        <!-- Decoración -->
+        <div class="service-box">
+            <img src="../images/home/decoracion.png" alt="Decoración">
+            <h2>Decoración</h2>
+            <p>Convierte tu fiesta en un evento inolvidable con una decoración espectacular, adaptada a tu estilo.</p>
+            <button onclick="window.location.href='Registro.html'">Ver opciones</button>
+        </div>
+
+        <!-- DJ de Música -->
+        <div class="service-box">
+            <img src="../images/home/dj.png" alt="DJ de Música">
+            <h2>DJ de Música</h2>
+            <p>El mejor DJ para que tus invitados disfruten de la música más divertida y moderna.</p>
+            <button onclick="window.location.href='Registro.html'">Ver opciones</button>
+        </div>
+
+        <!-- Moda -->
+        <div class="service-box">
+            <img src="../images/home/moda.png" alt="Moda">
+            <h2>Moda</h2>
+            <p>Te ayudamos a encontrar el vestido perfecto y los accesorios ideales para lucir espectacular.</p>
+            <button onclick="window.location.href='Registro.html'">Ver opciones</button>
+        </div>
+
+        <!-- Show de Entretenimiento -->
+        <div class="service-box">
+            <img src="../images/home/entretenimiento.png" alt="Show de Entretenimiento">
+            <h2>Show de Entretenimiento</h2>
+            <p>Animación y espectáculos para que todos tus invitados vivan una noche llena de diversión.</p>
+            <button onclick="window.location.href='Registro.html'">Ver opciones</button>
+        </div>
+
+        <!-- Salones -->
+        <div class="service-box">
+            <img src="../images/home/salones.png" alt="Salones">
+            <h2>Salones</h2>
+            <p>Contamos con los mejores salones de eventos para tu fiesta de 15 años.</p>
+            <button onclick="window.location.href='Registro.html'">Ver opciones</button>
+        </div>
+
+        <!-- Personal de Seguridad -->
+        <div class="service-box">
+            <img src="../images/home/seguridad.png" alt="Personal de Seguridad">
+            <h2>Personal de Seguridad</h2>
+            <p>Garantizamos la seguridad de todos los asistentes para que disfrutes de tu fiesta sin preocupaciones.</p>
+            <button onclick="window.location.href='Registro.html'">Ver opciones</button>
+        </div>
+    </div>
+
+    <div class="more">
+        ¡Y mucho más...!
+    </div>
+</body>
+</html>
