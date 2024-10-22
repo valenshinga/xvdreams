@@ -32,6 +32,11 @@ if (login){
 
 		signInWithEmailAndPassword(auth, email, password)
 			.then((userCredential) => {
+				const user = userCredential.user;
+
+				// Guarda el UID y el email (o cualquier otro dato) en localStorage
+				localStorage.setItem('userID', user.uid);
+				localStorage.setItem('username', user.email);  // Suponiendo que email es el username
 				window.location.href = "../home.html";
 			})
 			.catch((error) => {
@@ -80,6 +85,8 @@ const logoutButton = document.getElementById('logoutButton');
 if(logoutButton){
 	logoutButton.addEventListener('click', () => {
 		signOut(auth).then(() => {
+			localStorage.removeItem('userID');
+			localStorage.removeItem('username');
 			window.location.href = '../paginas/authentication/login.html'; // Redirige a la página de inicio de sesión.
 		}).catch((error) => {
 			console.error("Error during logout:", error);
