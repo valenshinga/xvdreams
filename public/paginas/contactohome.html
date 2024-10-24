@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - XV Dreams</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #ffeeef; /* Rosa */
+            font-family: 'Cinzel', serif; /* Asegúrate de que 'Cinzel' esté disponible en tu proyecto */
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            background-color: #b89360; /* Doradito */
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .navbar ul li {
+            display: inline;
+        }
+
+        .navbar ul li a {
+            display: inline-block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+
+        .navbar ul li a:hover {
+            background-color: #a07b4e;
+        }
+
+        .contact-section {
+            text-align: center;
+            margin-top: 80px; /* Espacio por la navbar */
+        }
+
+        .contact-title {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #b89360; /* Color dorado para el texto */
+        }
+
+        .social-media-icons {
+            display: flex;
+            justify-content: center;
+        }
+
+        .social-media-icons a {
+            margin: 0 30px;
+        }
+
+        .social-media-icons img {
+            width: 250px; /* Tamaño de las imágenes */
+            height: 250px; /* Mantener la proporción de 1:1 */
+            border: 3px solid #b89360; /* Borde dorado más delgado */
+            border-radius: 15px; /* Bordes redondeados */
+            object-fit: cover; /* Para que la imagen mantenga su aspecto al recortarse */
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="serviciohome.html">Servicios</a></li>
+            <li><a href="precioshome.html">Contacto</a></li>
+            <li><a href="registro.html">Registro/Login</a></li>
+        </ul>
+    </div>
+
+    <!-- Sección de contacto -->
+    <div class="contact-section">
+        <h2 class="contact-title">También podés encontrarnos en...</h2>
+        <div class="social-media-icons">
+            <a href="https://www.instagram.com/your15dreams/" target="_blank">
+                <img src="../images/home/instagramlogo.png" alt="Instagram">
+            </a>
+            <a href="https://www.tiktok.com/@xv.dreams?lang=es" target="_blank">
+                <img src="../images/home/tiktoklogo.png" alt="TikTok">
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61559667524410" target="_blank">
+                <img src="../images/home/facebooklogo.png" alt="Facebook">
+            </a>
+        </div>
+    </div>
+</body>
+</html>
