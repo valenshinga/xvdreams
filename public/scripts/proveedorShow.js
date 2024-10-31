@@ -10,25 +10,30 @@ async function getProveedor(id) {
     var proveedor = await getDoc(docRef);
 
     if (proveedor.exists()) {
+        const iconHtml = '<i class="icofont-duotone icofont-location-alt" style="color: black;"></i> ';
         proveedor = proveedor.data()
         $('#proveedorNombre').text(proveedor.nombre);
         $('#razonSocial').text(proveedor.razonSocial);
         $('#categoriaPrincipal').text(proveedor.servicios[0].categoria);
         $('#telefono').text(proveedor.telefono);
         // $('#email').text(proveedor.contacto.email);
-        $('#direccion').text(proveedor.direccion);
+        $('#direccion').html(iconHtml + proveedor.direccion);
         $('#descripcion').text(proveedor.descripcion || 'Descripción no disponible.');
 
-        const listaServicios = $('#listaServicios');
+        const listaServicios = $('#lista-productos');
+        let itemsServicios = '';
         proveedor.servicios.forEach(servicio => {
-            listaServicios.append(`
-                <li class="list-group-item">
+            console.log(servicio.nombre);
+            
+            itemsServicios += `
+                <div class="lista-productos-item">
                     <h5>${servicio.nombre}</h5>
                     <p>${servicio.descripcion}</p>
                     <strong>Precio:</strong> $${servicio.precio}
-                </li>
-            `);
+                </div>
+            `;
         });
+        listaServicios.html(itemsServicios);
 
         if (proveedor.imagenes && proveedor.imagenes.length > 0) {
             proveedor.imagenes.forEach((imagen, index) => {
