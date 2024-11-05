@@ -47,14 +47,14 @@ $(document).ready(function () {
         filteredProviders.forEach(provider => {
             const cardHTML = `
             <div class="col">
-                <div class="card">
-                    <div class="card-details">
+                <div class="card-buscador">
+                    <div class="card-buscador-details">
                         <img src="https://via.placeholder.com/150" class="card-img-top" alt="${provider.nombre}">
                         <h5 class="text-title">${provider.nombre}</h5>
                         <p class="text-body">Servicio: ${provider.servicios[0].categoria}</p>
                         <p class="text-body">Ciudad: ${provider.direccion}</p>
                     </div>
-                    <button class="btnMostrarInfo card-button" type="button" data-id="${provider.id}">Mas información</button>
+                    <button class="btnMostrarInfo card-buscador-button" type="button" data-id="${provider.id}">Mas información</button>
                 </div>
             </div>
             `;
