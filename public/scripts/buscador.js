@@ -33,6 +33,7 @@ $(document).ready(function () {
     }
 
     $('#search-btn').on('click', async function () {
+        console.log($('#search-input').val())
         $("#loader").show()
         const filter = $('#filter-select').val();
         const searchText = removeAccents($('#search-input').val().toLowerCase());
@@ -46,15 +47,14 @@ $(document).ready(function () {
         filteredProviders.forEach(provider => {
             const cardHTML = `
             <div class="col">
-                <div class="card h-100">
-                    <img src="https://via.placeholder.com/150" class="card-img-top" alt="${provider.nombre}">
-                    <div class="card-body">
-                        <h5 class="card-title">${provider.nombre}</h5>
-                        <p class="card-text">Servicio: ${provider.servicios[0].categoria}</p>
-                        <p class="card-text">Ciudad: ${provider.direccion}</p>
-                        <p class="card-text">Razón Social: ${provider.razonSocial}</p>
-                        <button type="button" class="btnMostrarInfo btn btn-info button-xvdreams" data-id="${provider.id}">Más información</button>
+                <div class="card">
+                    <div class="card-details">
+                        <img src="https://via.placeholder.com/150" class="card-img-top" alt="${provider.nombre}">
+                        <h5 class="text-title">${provider.nombre}</h5>
+                        <p class="text-body">Servicio: ${provider.servicios[0].categoria}</p>
+                        <p class="text-body">Ciudad: ${provider.direccion}</p>
                     </div>
+                    <button class="btnMostrarInfo card-button" type="button" data-id="${provider.id}">Mas información</button>
                 </div>
             </div>
             `;
@@ -63,6 +63,7 @@ $(document).ready(function () {
 
         // Manejar el evento click para redireccionar a la página del proveedor
         $('.btnMostrarInfo').on('click', function () {
+            console.log('click')
             const id = $(this).data('id');
             window.location.href = `proveedor.html?id=${id}`;
         });

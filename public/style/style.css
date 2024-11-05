@@ -4,16 +4,123 @@
     margin-bottom: 20px;
 }
 
-.navbar {
-    border-bottom: 1px solid #b89360;
-}
-h4 {
-    margin-bottom: 15px;
+body {
+    background-image: linear-gradient(to top, #d299c2 0%, #fae292 100%) !important;
+    background-size: cover; /* Hace que el gradiente cubra todo el fondo */
+    background-repeat: no-repeat; /* Evita que el gradiente se repita */
+    background-attachment: fixed; /* Mantiene el fondo fijo al hacer scroll */
 }
 
-body {
-    background-color: #fce3e3 !important;
+.navbar{
+    background-color: transparent !important;
 }
+/* From Uiverse.io by Praashoo7 */ 
+.input {
+    border: none;
+    outline: none;
+    border-radius: 15px !important;
+    padding: 1em;
+    background-color: #ccc;
+    box-shadow: inset 2px 5px 10px rgba(0,0,0,0.3);
+    transition: 300ms ease-in-out;
+  }
+  
+  .input:focus {
+    background-color: white;
+    transform: scale(1.03);
+    box-shadow: 13px 13px 100px #969696,
+               -13px -13px 100px #ffffff;
+  }
+
+  #search-btn{
+    border: none;
+    outline: none;
+    border-radius: 15px !important;
+    padding: 1em;
+    background-color: #ccc;
+    box-shadow: inset 2px 5px 10px rgba(0,0,0,0.3);
+  }
+
+  .card {
+    border-radius: 20px;
+    background: #f5f5f5;
+    position: relative;
+    padding: 1.8rem;
+    border: 2px solid #c3c6ce;
+    transition: 0.5s ease-out;
+    overflow: visible;
+    z-index: 1;
+   }
+   
+   .card-details {
+    color: black;
+    height: 100%;
+    gap: .5em;
+    display: grid;
+    place-content: center;
+   }
+   
+   .card-button {
+    transform: translate(-50%, 125%);
+    width: 60%;
+    border-radius: 1rem;
+    border: none;
+    background-color: #f72585;
+    color: #fff;
+    font-size: 1rem;
+    padding: .5rem 1rem;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    opacity: 0;
+    transition: 0.3s ease-out;
+    z-index: 5;
+    pointer-events: none;
+   }
+   
+   .text-body {
+    color: rgb(134, 134, 134);
+   }
+   
+   /*Text*/
+   .text-title {
+    font-size: 1.5em;
+    font-weight: bold;
+   }
+   
+   /*Hover*/
+   .card:hover {
+    border-color: #f72585;
+    box-shadow: 0 4px 18px 0 rgba(0, 0, 0, 0.25);
+   }
+   
+   .card:hover .card-button {
+    transform: translate(-50%, 50%);
+    opacity: 1;
+    pointer-events: auto;
+   }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .carousel-control-prev, .carousel-control-next {
     z-index: 99999;
@@ -430,3 +537,5 @@ header h1 {
         box-shadow: 0 0 0 0 rgba(255, 238, 239, 0.7);
     }
 }
+
+
