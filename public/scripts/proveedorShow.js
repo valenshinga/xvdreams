@@ -5,28 +5,27 @@ function obtenerParametroURL(nombre) {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get(nombre);
 }
+
 async function getProveedor(id) {
     const docRef = doc(db, "proveedores", id);
     var proveedor = await getDoc(docRef);
 
     if (proveedor.exists()) {
         const iconHtml = '<i class="icofont-duotone icofont-location-alt" style="color: black;"></i> ';
-        proveedor = proveedor.data()
+        proveedor = proveedor.data();
         $('#proveedorNombre').text(proveedor.nombre);
         $('#razonSocial').text(proveedor.razonSocial);
         $('#categoriaPrincipal').text(proveedor.servicios[0].categoria);
         $('#telefono').text(proveedor.telefono);
-        // $('#email').text(proveedor.contacto.email);
         $('#direccion').html(iconHtml + proveedor.direccion);
         $('#descripcion').text(proveedor.descripcion || 'Descripción no disponible.');
 
         const listaServicios = $('#lista-productos');
         let itemsServicios = '';
-        proveedor.servicios.forEach(servicio => {
-            console.log(servicio.nombre);
-            
+        proveedor.servicios.forEach((servicio, index) => {
+            const isLast = index === proveedor.servicios.length - 1;
             itemsServicios += `
-                <div class="lista-productos-item">
+                <div class="lista-productos-item${isLast ? ' last-servicio' : ''}">
                     <h5>${servicio.nombre}</h5>
                     <p>${servicio.descripcion}</p>
                     <strong>Precio:</strong> $${servicio.precio}
@@ -34,6 +33,9 @@ async function getProveedor(id) {
             `;
         });
         listaServicios.html(itemsServicios);
+
+        // Initialize SimpleBar on the #lista-productos element
+        new SimpleBar(document.getElementById('lista-productos'));
 
         if (proveedor.imagenes && proveedor.imagenes.length > 0) {
             proveedor.imagenes.forEach((imagen, index) => {
@@ -46,7 +48,7 @@ async function getProveedor(id) {
             });
         }
         $("#loader").fadeOut('slow');
-        $("#cardProveedor").fadeIn('slow')
+        $("#cardProveedor").fadeIn('slow');
     } else {
         mostrarError('Proveedor no encontrado.');
     }
@@ -57,8 +59,8 @@ function mostrarError(mensaje) {
 }
 
 $(document).ready(function() {
-    $("#cardProveedor").hide()
-    $("#loader").show()
+    $("#cardProveedor").hide();
+    $("#loader").show();
     const id = obtenerParametroURL('id');
     if (id) {
         getProveedor(id);
