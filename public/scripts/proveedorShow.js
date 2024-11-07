@@ -1,5 +1,8 @@
-import { doc, getDoc } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
+import { doc, getDoc, updateDoc } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
+import { getAuth } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-auth.js";
 import { db } from "../scripts/xvdreams.js";
+
+const auth = getAuth();
 
 function obtenerParametroURL(nombre) {
     const urlParams = new URLSearchParams(window.location.search);
@@ -24,30 +27,80 @@ async function getProveedor(id) {
         let itemsServicios = '';
         proveedor.servicios.forEach((servicio, index) => {
             const isLast = index === proveedor.servicios.length - 1;
+            const imagenHtml = servicio.imagen ? `<img src="${servicio.imagen}" alt="${servicio.nombre}" class="servicio-imagen">` : '';
             itemsServicios += `
                 <div class="lista-productos-item${isLast ? ' last-servicio' : ''}">
-                    <h5>${servicio.nombre}</h5>
-                    <p>${servicio.descripcion}</p>
-                    <strong>Precio:</strong> $${servicio.precio}
+                    <div style="width: 100%" style="display: flex;">
+                        <div>
+                            <h5 id=>${servicio.nombre}</h5>
+                            <p>${servicio.descripcion}</p>
+                            <strong>Precio:</strong> $${servicio.precio}
+                        </div>
+                        <div>
+                            ${imagenHtml}
+                        </div>
+                    </div>
+                    <div class="producto-item-footer">
+                        <button class="btn btn-primary" data-servicio-id="${servicio.id}" data-servicio-nombre="${servicio.nombre}">Contratar Servicio</button>
+                    </div>
                 </div>
             `;
         });
         listaServicios.html(itemsServicios);
-
-        // Initialize SimpleBar on the #lista-productos element
         new SimpleBar(document.getElementById('lista-productos'));
 
-        if (proveedor.imagenes && proveedor.imagenes.length > 0) {
-            proveedor.imagenes.forEach((imagen, index) => {
-                const activeClass = index === 0 ? 'active' : '';
-                $('#carouselExample .carousel-inner').append(`
-                    <div class="carousel-item ${activeClass}">
-                        <img src="${imagen}" class="d-block w-100" alt="Imagen del Servicio">
-                    </div>
-                `);
-            });
-        }
+        // Initialize SimpleBar on the #lista-productos element
         $("#loader").fadeOut('slow');
+
+        // Event listener for the contratar button
+        $(document).on('click', '.contratar-servicio-btn', function() {
+            const servicioId = $(this).data('servicio-id');
+            const nombreServicio = $(this).data('servicio-nombre');
+            console.log(nombreServicio)
+            Swal.fire({
+                icon: 'info',
+                title: 'Atención',
+                text: 'Usted va a contratar el servicio ' + nombreServicio,
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#5a5a5a',
+                confirmButtonText: 'Contratar',
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    contratarServicio(servicioId);
+                }
+            });
+        });
+
+        async function contratarServicio(servicioId) {
+            const user = auth.currentUser;
+
+            const userId = user.uid;
+
+            // Update Firebase
+            const servicioContratadoId = `${id}-${servicioId}`;
+            const docUserRef = doc(db, "Users", userId);
+            const userDoc = await getDoc(docUserRef);
+            if (userDoc.exists()) {
+                let serviciosContratados = userDoc.data().serviciosContratados || [];
+                serviciosContratados.push({
+                    id: servicioContratadoId,
+                    estado: 'pendiente pago'
+                });
+            
+                await updateDoc(docUserRef, {
+                    serviciosContratados: serviciosContratados
+                }).then(() => {
+                    $('#contratarModal').modal('show');
+                }).catch((error) => {
+                    console.error('Error updating Firebase:', error);
+                });
+            } else {
+                console.error("Diccionario de User(" + userId  + ") no existe");
+            }
+        }
+
         $("#cardProveedor").fadeIn('slow');
     } else {
         mostrarError('Proveedor no encontrado.');

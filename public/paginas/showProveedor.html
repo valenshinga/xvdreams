@@ -1,21 +1,22 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Información del Proveedor</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <link rel="stylesheet" href="../style/style.css">
-    <link rel="stylesheet" href="../style/icofont/icofont.min.css">
-	<script type="module" src="../scripts/proveedorShow.js"></script>
-    <script type="module" src="./authentication/authentication.js"></script>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Información del Proveedor</title>
+	<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.min.css" />
 	<script src="https://cdn.jsdelivr.net/npm/simplebar@latest/dist/simplebar.min.js"></script>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+	<link rel="stylesheet" href="../style/style.css">
+	<link rel="stylesheet" href="../style/icofont/icofont.min.css">
+	<script type="module" src="../scripts/proveedorShow.js"></script>
+	<script type="module" src="./authentication/authentication.js"></script>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary" style="background-color: #ffeeef !important;">
+	<nav class="navbar navbar-expand-lg bg-body-tertiary" style="background-color: #ffeeef !important;">
 		<div class="container-fluid">
 			<a class="navbar-brand" href="home.html"><img src="../images/index/navLogo.png" alt="Logo" width="70px" height="70px"></a>
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -33,7 +34,7 @@
 						<ul class="dropdown-menu">
 							<li><a class="dropdown-item" href="gestionPresupuesto.html">Presupuesto</a></li>
 							<li><a class="dropdown-item" href="gestionInvitados.html">invitados</a></li>
-                            <li><a class="dropdown-item" href="toDoUser.html">Gestión de tareas</a></li>
+							<li><a class="dropdown-item" href="toDoUser.html">Gestión de tareas</a></li>
 						</ul>
 					</li>
 					<li class="nav-item">
@@ -44,14 +45,14 @@
 					<input class="form-control" style="margin: 0px;border-radius: 0.375rem 0px 0px 0.375rem;border-right-width: 0px;" type="search" placeholder="Buscar" aria-label="Search">
 					<a class="btn" style="border: 1px solid #dee2e6;border-radius: 0px 0.375rem 0.375rem 0px;background-color: #fff;" href="busqueda.html" type="submit"><i class="icofont-search"></i></a>
 				</div>
-                <div class="nav-item" id="logoutContainer">
+				<div class="nav-item" id="logoutContainer">
 					<button id="logoutButton" class="btn-logout">Cerrar Sesión</button>
 				</div>
 			</div>
 		</div>
 	</nav>  
-    <div class="show-proveedor">
-        <div class="perfil-proveedor">
+	<div class="show-proveedor">
+		<div class="perfil-proveedor">
 			<div class="div-informacion-principal">
 				<div class="div-informacion-presentacion">
 					<div class="foto-perfil">
@@ -69,10 +70,30 @@
 			</div>
 			<div class="div-informacion">
 			</div>
-        </div>
-        <div id="lista-productos" class="lista-productos" data-simplebar>
-    
-        </div>
-    </div>
+		</div>
+		<div id="lista-productos" class="lista-productos" data-simplebar>
+	
+		</div>
+	</div>
+
+	<!-- Modal HTML -->
+	<div id="contratarModal" class="modal" tabindex="-1" role="dialog">
+		<div class="modal-dialog modal-lg" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">Contratar Servicio</h5>
+				</div>
+				<div class="modal-body" style="display: flex; flex-direction: column; align-items: center;">
+					<h2>Por favor, pague su servicio</h2>
+					<img src="https://picsum.photos/500" alt="QR Code" class="img-fluid">
+					<p class="mt-2">Mandaremos un mail con este mismo QR para que pague el servicio</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" id="contratarModalApply" data-dismiss="modal" class="btn btn-primary">Aceptar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
 </body>
 </html>
