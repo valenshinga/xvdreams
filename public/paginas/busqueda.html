@@ -12,7 +12,7 @@
 </head>
 <body>
 	<nav class="navbar navbar-expand-lg bg-body-tertiary" style="background-color: transparent !important;">
-		<div class="container-fluid">
+		<div class="container-fluid" style="padding-right: calc(var(--bs-gutter-x) * 4); padding-left: calc(var(--bs-gutter-x) * 4);">
 			<a class="navbar-brand" href="home.html"><img src="../images/index/navLogo.png" alt="Logo" width="70px" height="70px"></a>
 			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
 				<span class="navbar-toggler-icon"></span>
@@ -21,6 +21,9 @@
 				<ul class="navbar-nav">
 					<li class="nav-item">
 						<a class="nav-link active" aria-current="page" href="home.html"><i class="icofont-duotone icofont-home"></i> Inicio</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link active" aria-current="page" href="busqueda.html"><i class="icofont-search"></i> Buscar</a>
 					</li>
 					<li class="nav-item dropdown">
 						<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -31,13 +34,19 @@
 							<li><a class="dropdown-item" href="gestionInvitados.html">invitados</a></li>
 							<li><a class="dropdown-item" href="toDoUser.html">Gestión de tareas</a></li>
 						</ul>
-						<li class="nav-item">
-							<a class="nav-link" href="ayuda.html" style="margin-right: 5px;">Asistencia<i style="margin-left: 5px;"></i></a>
-						</li>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="ayuda.html" style="margin-right: 5px;">Asistencia<i style="margin-left: 5px;"></i></a>
 					</li>
 				</ul>
+
 				<div class="nav-item" id="logoutContainer">
-					<button id="logoutButton" class="btn-logout">Cerrar Sesión</button>
+					<button id="logoutButton" class="btn-logout">
+
+						<div class="sign"><i class="icofont-duotone icofont-sign-out" style="color: #fff;"></i></div>
+						
+						<div class="text">Salir</div>
+					</button>
 				</div>
 			</div>
 		</div>
