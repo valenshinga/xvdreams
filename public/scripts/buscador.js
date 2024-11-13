@@ -64,7 +64,7 @@ $(document).ready(function () {
         // Manejar el evento click para redireccionar a la página del proveedor
         $('.btnMostrarInfo').on('click', function () {
             const id = $(this).data('id');
-            window.location.href = `proveedor.html?id=${id}`;
+            window.location.href = `showProveedor.html?id=${id}`;
         });
         $("#loader").fadeOut(400)
     });

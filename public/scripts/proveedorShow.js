@@ -10,8 +10,10 @@ function obtenerParametroURL(nombre) {
 }
 
 async function getProveedor(id) {
+    document.getElementById('loader').style.display = 'show';
     const docRef = doc(db, "proveedores", id);
     var proveedor = await getDoc(docRef);
+    document.getElementById('loader').style.display = 'hidden';
 
     if (proveedor.exists()) {
         const iconHtml = '<i class="icofont-duotone icofont-location-alt" style="color: black;"></i> ';
@@ -30,18 +32,18 @@ async function getProveedor(id) {
             const imagenHtml = servicio.imagen ? `<img src="${servicio.imagen}" alt="${servicio.nombre}" class="servicio-imagen">` : '';
             itemsServicios += `
                 <div class="lista-productos-item${isLast ? ' last-servicio' : ''}">
-                    <div style="width: 100%" style="display: flex;">
-                        <div>
-                            <h5 id=>${servicio.nombre}</h5>
+                    <div class="servicio-contenedor">
+                        <div class="servicio-info">
+                            <h5>${servicio.nombre}</h5>
                             <p>${servicio.descripcion}</p>
                             <strong>Precio:</strong> $${servicio.precio}
                         </div>
-                        <div>
+                        <div class="servicio-imagen-contenedor">
                             ${imagenHtml}
                         </div>
                     </div>
                     <div class="producto-item-footer">
-                        <button class="btn btn-primary" data-servicio-id="${servicio.id}" data-servicio-nombre="${servicio.nombre}">Contratar Servicio</button>
+                        <button class="btn btn-primary contratar-servicio-btn" data-servicio-id="${servicio.id}" data-servicio-nombre="${servicio.nombre}">Contratar Servicio</button>
                     </div>
                 </div>
             `;
@@ -120,4 +122,12 @@ $(document).ready(function() {
     } else {
         mostrarError('ID del proveedor no especificado.');
     }
+});
+document.addEventListener('DOMContentLoaded', function() {
+    var calendarEl = document.getElementById('div-calendar');
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'dayGridMonth',
+        height: '60%'
+    });
+    calendar.render();
 });
