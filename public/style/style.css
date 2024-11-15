@@ -223,7 +223,6 @@ body {
 
 .card-principal h4 {
     border-bottom: 1px solid #b89360;
-    margin-bottom: 40px;
 }
 .favorites, .featured, .section {
     display: flex;
@@ -238,6 +237,7 @@ body {
 
 .favorite-item img{
     height: 100px;
+    width: 100px;
     border-radius: 50%;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
